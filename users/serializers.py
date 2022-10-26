@@ -4,7 +4,7 @@ from rest_framework.validators import UniqueValidator
 
 from users.services import user_create
 # Local
-from .models import User
+from .models import User, Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):
