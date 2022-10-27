@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 api_urls = [
-    path("users/", include("users.urls"))
+    path("users/", include("users.urls")),
+    path("nps/", include("nps.urls")),
 ]
 
 urlpatterns = [

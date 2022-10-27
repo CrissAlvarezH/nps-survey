@@ -10,8 +10,8 @@ from faker.providers import company as company_faker, profile as profile_faker
 from nps.models import Company, CompanyUser, Nps
 from nps.services.companies import add_person_to_company_bulk, company_bulk_create
 from nps.services.countries import country_get
-from nps.services.nps import nps_create_bulk
-from users.services import user_bulk_create
+from nps.services.nps import nps_create_bulk, nps_list
+from users.services import user_bulk_create, user_exists
 from users.models import User
 
 from .insert_countries import COUNTRIES
@@ -23,6 +23,9 @@ LOG = logging.getLogger("nps-commands")
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
+        if nps_list().exists():
+            return "nps data is already inserted"
+
         faker = Faker()
         faker.add_provider(company_faker)
         faker.add_provider(profile_faker)
@@ -48,6 +51,9 @@ class Command(BaseCommand):
         amount_of_people = len(companies_in_db) * 8
         for _ in range(amount_of_people):
             profile = faker.profile(["name", "mail"])
+            if user_exists(email=profile["mail"]):
+                continue
+
             user = User(
                 full_name=profile["name"],
                 email=profile["mail"],
@@ -71,7 +77,7 @@ class Command(BaseCommand):
                 )
                 company_user_relationships.append(company_user)
 
-        add_person_to_company_bulk(company_user_relationships)
+        add_person_to_company_bulk(relationships=company_user_relationships)
 
         LOG.info("start to insert nps surveys")
         # insert nps surveys
@@ -81,3 +87,5 @@ class Command(BaseCommand):
             nps_surveys.append(nps_answer)
 
         nps_create_bulk(nps_surveys=nps_surveys)
+
+        return "nps data inserted successfully"

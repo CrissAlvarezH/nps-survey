@@ -18,6 +18,14 @@ def user_create(
     return user
 
 
+def user_get(id: int) -> User:
+    return User.objects.get(id=id)
+
+
+def user_exists_by_id(*, id: int) -> bool:
+    return User.objects.filter(id=id).exists()
+
+
 def user_exists(*, email: str) -> bool:
     return User.objects.filter(email=email).exists()
 

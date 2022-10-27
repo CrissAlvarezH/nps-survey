@@ -9,6 +9,14 @@ up: up-db
 down:
 	docker compose down
 
+setup:
+	docker compose up database -d
+	sleep 4
+	python manage.py migrate
+	python manage.py create_superuser
+	python manage.py insert_countries
+	python manage.py insert_nps_data
+
 clean-db: down
 	docker volume ls
 	docker volume rm npssurvey_dbdata

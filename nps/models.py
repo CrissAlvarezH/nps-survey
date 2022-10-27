@@ -13,7 +13,10 @@ class Company(models.Model):
     name = models.CharField(max_length=250)
     description = models.CharField(max_length=1000, null=True, blank=True)
     country_name = models.ForeignKey("nps.Country", on_delete=models.CASCADE)
-    persons = models.ManyToManyField("users.User", through="nps.CompanyUser")
+
+    @property
+    def total_persons(self) -> int:
+        return self.companyuser_set.count()
 
     def __str__(self) -> str:
         return f"{self.id}: {self.name}"
@@ -34,6 +37,9 @@ class CompanyUser(models.Model):
     )
     company = models.ForeignKey("nps.Company", on_delete=models.CASCADE)
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ("company", "user")
 
 
 class Nps(models.Model):
