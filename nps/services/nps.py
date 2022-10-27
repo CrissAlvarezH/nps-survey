@@ -18,5 +18,8 @@ def nps_create_bulk(*, nps_surveys: List[Nps]) -> List[Nps]:
     return Nps.objects.bulk_create(nps_surveys)
 
 
-def nps_list():
-    return Nps.objects.all()
+def nps_list(**filters):
+    if filters:
+        return Nps.objects.filter(**filters)
+    else:
+        return Nps.objects.all()
