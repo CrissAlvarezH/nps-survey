@@ -1,4 +1,6 @@
 from django.db import models
+from django.dispatch import receiver
+from django.db.models.signals import pre_save
 
 
 class Country(models.Model):
@@ -53,6 +55,7 @@ class Nps(models.Model):
         blank=True,
         on_delete=models.CASCADE
     )
+    metadata = models.JSONField(default=dict, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.person.user} -> {self.answer}"

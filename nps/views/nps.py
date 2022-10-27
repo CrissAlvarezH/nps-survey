@@ -3,6 +3,7 @@ from rest_framework.response import Response
 
 from nps.serializers.nps import NpsCreateSerializer, NpsRetrieveSerializer
 from nps.services.nps import nps_create, nps_list
+from nps import signals
 
 
 class NpsViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
@@ -27,7 +28,13 @@ class NpsViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.Generi
         nps = nps_create(
             user=user,
             company_id=data["company_id"],
-            answer=data["answer"]
+            answer=data["answer"],
+        )
+
+        signals.nps_inserted.send(
+            sender=self.__class__,
+            nps_id=nps.id,
+            request=self.request
         )
 
         output_data = NpsRetrieveSerializer(nps).data
