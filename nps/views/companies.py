@@ -1,4 +1,5 @@
 from rest_framework import viewsets, status
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from nps.models import Company, CompanyUser
@@ -19,6 +20,7 @@ from nps.services.companies import (
 
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -29,6 +31,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
 class CompanyUserRelationshipViewSet(viewsets.ModelViewSet):
     serializer_class = CompanyUserListSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return CompanyUser.objects.filter(
