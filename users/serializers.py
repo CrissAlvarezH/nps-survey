@@ -4,21 +4,14 @@ from rest_framework.validators import UniqueValidator
 
 from users.services import user_create
 # Local
-from .models import User, Profile
-
-
-class ProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        fields = ('id')
+from .models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer(read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'profile', 'full_name', 'email')
+        fields = ('id', 'full_name', 'email')
 
 
 class UserSignUpSerializer(serializers.Serializer):

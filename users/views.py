@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 # Local
-from .models import User, Profile
+from .models import User
 from .serializers import UserSerializer, UserSignUpSerializer
 
 
@@ -32,8 +32,5 @@ class UserViewSet(mixins.RetrieveModelMixin,
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
 
-        Profile.objects.create(user=user)
-
         user_json = UserSerializer(user).data
         return Response(user_json, status=status.HTTP_201_CREATED)
-

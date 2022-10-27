@@ -1,3 +1,5 @@
+from typing import List
+
 from .models import User
 
 
@@ -18,3 +20,7 @@ def user_create(
 
 def user_exists(*, email: str) -> bool:
     return User.objects.filter(email=email).exists()
+
+
+def user_bulk_create(*, users: List[User]):
+    return User.objects.bulk_create(users)

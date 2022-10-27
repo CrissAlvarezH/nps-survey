@@ -106,7 +106,6 @@ pyrightconfig.json
 !.elasticbeanstalk/*.global.yml
 versions/*
 dummy_*
-pyproject.toml
 
 # gitchangelog
 .gitchangelog.rc

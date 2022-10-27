@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "npssurvey"
+version = "0.1.0"
+description = ""
+authors = ["Cristian Alvarez H <cristian.alvarez@simetrik.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.8"
+Django = "4.1.2"
+djangorestframework = "3.14.0"
+django-environ = "0.9.0"
+psycopg2-binary = "2.9.5"
+djangorestframework-simplejwt = "5.2.2"
+Faker = "15.1.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "22.10.0"
+flake8 = "5.0.4"
+
+[tool.black]
+line-length = 88
+extend-exclude = """
+(
+    migrations 
+    | config
+    | manage.py
+)
+"""
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
