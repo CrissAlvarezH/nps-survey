@@ -1,11 +1,17 @@
 from typing import List, Optional
 
-from nps.models import Nps
+from nps.models import CompanyUser, Nps
 from users.models import User
 
 
-def nps_create(*, user: Optional[User] = None, answer: int) -> Nps:
-    return Nps.objects.create(user=user, answer=answer)
+def nps_create(
+    *,
+    user: Optional[User] = None,
+    company_id: Optional[int] = None,
+    answer: int
+) -> Nps:
+    person = CompanyUser.objects.get(user_id=user.id, company_id=company_id)
+    return Nps.objects.create(person=person, answer=answer)
 
 
 def nps_create_bulk(*, nps_surveys: List[Nps]) -> List[Nps]:

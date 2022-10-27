@@ -1,6 +1,7 @@
 # Rest framework
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
+from nps.models import Company
 
 from users.services import user_create
 # Local
@@ -12,6 +13,19 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'full_name', 'email')
+
+
+class UserRetrieveSerializer(serializers.ModelSerializer):
+    class UserCompany(serializers.ModelSerializer):
+        class Meta:
+            model = Company
+            fields = ("id", "name", "country_name", "total_persons")
+
+    companies = UserCompany(many=True)
+
+    class Meta:
+        model = User
+        fields = ("id", "full_name", "email", "companies")
 
 
 class UserSignUpSerializer(serializers.Serializer):

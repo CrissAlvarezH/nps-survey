@@ -6,7 +6,7 @@ from nps.serializers.companies import (
     CompanyListSerializer,
     CompanyRetrieveSerializer,
     CompanyUserCreateSerializer,
-    CompanyUserRetrieveSerializer,
+    CompanyUserListSerializer,
     CompanyUserUpdateSerializer
 )
 from nps.services.companies import (
@@ -28,7 +28,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
 
 class CompanyUserRelationshipViewSet(viewsets.ModelViewSet):
-    serializer_class = CompanyUserRetrieveSerializer
+    serializer_class = CompanyUserListSerializer
 
     def get_queryset(self):
         return CompanyUser.objects.filter(
@@ -54,7 +54,7 @@ class CompanyUserRelationshipViewSet(viewsets.ModelViewSet):
             role=data["role"]
         )
 
-        output_data = CompanyUserRetrieveSerializer(relationship).data
+        output_data = CompanyUserListSerializer(relationship).data
         return Response(output_data, status=status.HTTP_201_CREATED)
 
     def update(self, request, pk, company_id):
@@ -66,7 +66,7 @@ class CompanyUserRelationshipViewSet(viewsets.ModelViewSet):
             user_id=pk, company_id=company_id, role=data["role"]
         )
 
-        output_data = CompanyUserRetrieveSerializer(relationship).data
+        output_data = CompanyUserListSerializer(relationship).data
         return Response(output_data)
 
     def destroy(self, request, pk, company_id):

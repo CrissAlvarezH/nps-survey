@@ -1,4 +1,3 @@
-from pkg_resources import require
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
@@ -7,14 +6,6 @@ from nps.services.companies import person_company_relationship_exists
 
 from users.serializers import UserSerializer
 from users.services import user_exists_by_id
-
-
-class CompanyUserRetrieveSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
-
-    class Meta:
-        model = CompanyUser
-        fields = ["user", "role"]
 
 
 class CompanyUserCreateSerializer(serializers.Serializer):
@@ -48,9 +39,26 @@ class CompanyListSerializer(serializers.ModelSerializer):
         fields = ["id", "name", "description", "country_name", "total_persons"]
 
 
+class CompanyUserListSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+
+    class Meta:
+        model = CompanyUser
+        fields = ["user", "role"]
+
+
 class CompanyRetrieveSerializer(serializers.ModelSerializer):
-    persons = CompanyUserRetrieveSerializer(source="companyuser_set", many=True)
+    persons = CompanyUserListSerializer(source="companyuser_set", many=True)
 
     class Meta:
         model = Company
         fields = ["id", "name", "description", "country_name", "persons"]
+
+
+class CompanyUserRetrieveSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    company = CompanyListSerializer()
+
+    class Meta:
+        model = CompanyUser
+        fields = ["user", "company", "role"]

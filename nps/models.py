@@ -1,4 +1,3 @@
-# Django
 from django.db import models
 
 
@@ -19,7 +18,7 @@ class Company(models.Model):
         return self.companyuser_set.count()
 
     def __str__(self) -> str:
-        return f"{self.id}: {self.name}"
+        return f"{self.id}: {self.name} ({self.country_name})"
 
 
 class CompanyUser(models.Model):
@@ -41,16 +40,19 @@ class CompanyUser(models.Model):
     class Meta:
         unique_together = ("company", "user")
 
+    def __str__(self) -> str:
+        return f"{self.user} - {self.company}"
+
 
 class Nps(models.Model):
     answer = models.PositiveSmallIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(
-        "users.User",
+    person = models.ForeignKey(
+        "nps.CompanyUser",
         null=True,
         blank=True,
         on_delete=models.CASCADE
     )
 
     def __str__(self) -> str:
-        return f"{self.user} -> {self.answer}"
+        return f"{self.person.user} -> {self.answer}"

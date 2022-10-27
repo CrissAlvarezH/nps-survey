@@ -46,7 +46,7 @@ class Command(BaseCommand):
         companies_in_db = company_bulk_create(companies=companies)
 
         LOG.info("start to insert people")
-        # create 5 people for each company
+        # create 8 people for each company
         people = []
         amount_of_people = len(companies_in_db) * 8
         for _ in range(amount_of_people):
@@ -64,11 +64,12 @@ class Command(BaseCommand):
         users_in_db = user_bulk_create(users=people)
 
         LOG.info("start to insert user company relationship")
-        # add 10 people to each company
+        # add 8 people to each company
         roles = [c[0] for c in CompanyUser.Roles.choices]
         company_user_relationships = []
-        for index, company in enumerate(companies_in_db):
-            users = users_in_db[index:index + 8]
+        offset = 0
+        for company in companies_in_db:
+            users = users_in_db[offset:offset + 8]
             for user in users:
                 company_user = CompanyUser(
                     user=user,
@@ -77,13 +78,16 @@ class Command(BaseCommand):
                 )
                 company_user_relationships.append(company_user)
 
-        add_person_to_company_bulk(relationships=company_user_relationships)
+            offset = offset + 8
+
+        company_users_in_db = add_person_to_company_bulk(
+            relationships=company_user_relationships)
 
         LOG.info("start to insert nps surveys")
         # insert nps surveys
         nps_surveys = []
-        for user in users_in_db:
-            nps_answer = Nps(user=user, answer=random.randint(1, 10))
+        for person in company_users_in_db:
+            nps_answer = Nps(person=person, answer=random.randint(1, 10))
             nps_surveys.append(nps_answer)
 
         nps_create_bulk(nps_surveys=nps_surveys)

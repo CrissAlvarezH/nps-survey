@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 # Local
 from .models import User
-from .serializers import UserSerializer, UserSignUpSerializer
+from .serializers import UserRetrieveSerializer, UserSerializer, UserSignUpSerializer
 
 
 class UserViewSet(mixins.RetrieveModelMixin,
@@ -15,6 +15,11 @@ class UserViewSet(mixins.RetrieveModelMixin,
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    def get_serializer_class(self):
+        if self.action == "retrieve":
+            return UserRetrieveSerializer
+        return super().get_serializer_class()
 
     def get_permissions(self):
         permissions = []

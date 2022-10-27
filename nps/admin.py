@@ -23,7 +23,7 @@ admin.site.register(Company, CompanyAdmin)
 
 
 class NpsAdmin(admin.ModelAdmin):
-    list_display = ["user", "answer", "created_at"]
+    list_display = ["person", "id", "answer", "created_at"]
 
 
 admin.site.register(Nps, NpsAdmin)

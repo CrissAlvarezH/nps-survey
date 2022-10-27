@@ -9,6 +9,10 @@ def company_exist(*, name: str) -> bool:
     return Company.objects.filter(name=name).exists()
 
 
+def company_exist_by_id(*, id: int) -> bool:
+    return Company.objects.filter(id=id).exists()
+
+
 def company_create(
     *,
     name: str,
