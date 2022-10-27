@@ -7,11 +7,11 @@ from django.contrib.auth.hashers import make_password
 from faker import Faker
 from faker.providers import company as company_faker, profile as profile_faker
 
-from nps.models import Company, CompanyUser
-from nps.services import company_exist
+from nps.models import Company, CompanyUser, Nps
 from nps.services.companies import add_person_to_company_bulk, company_bulk_create
 from nps.services.countries import country_get
-from users.services import user_bulk_create, user_exists
+from nps.services.nps import nps_create_bulk
+from users.services import user_bulk_create
 from users.models import User
 
 from .insert_countries import COUNTRIES
@@ -27,6 +27,7 @@ class Command(BaseCommand):
         faker.add_provider(company_faker)
         faker.add_provider(profile_faker)
 
+        LOG.info("start to insert companies")
         companies = []
         for country in COUNTRIES:
             # create companies by country
@@ -41,9 +42,10 @@ class Command(BaseCommand):
 
         companies_in_db = company_bulk_create(companies=companies)
 
+        LOG.info("start to insert people")
         # create 5 people for each company
         people = []
-        amount_of_people = len(companies_in_db) * 5
+        amount_of_people = len(companies_in_db) * 8
         for _ in range(amount_of_people):
             profile = faker.profile(["name", "mail"])
             user = User(
@@ -55,11 +57,12 @@ class Command(BaseCommand):
 
         users_in_db = user_bulk_create(users=people)
 
+        LOG.info("start to insert user company relationship")
         # add 10 people to each company
         roles = [c[0] for c in CompanyUser.Roles.choices]
         company_user_relationships = []
         for index, company in enumerate(companies_in_db):
-            users = users_in_db[index:index + 10]
+            users = users_in_db[index:index + 8]
             for user in users:
                 company_user = CompanyUser(
                     user=user,
@@ -69,3 +72,12 @@ class Command(BaseCommand):
                 company_user_relationships.append(company_user)
 
         add_person_to_company_bulk(company_user_relationships)
+
+        LOG.info("start to insert nps surveys")
+        # insert nps surveys
+        nps_surveys = []
+        for user in users_in_db:
+            nps_answer = Nps(user=user, answer=random.randint(1, 10))
+            nps_surveys.append(nps_answer)
+
+        nps_create_bulk(nps_surveys=nps_surveys)
