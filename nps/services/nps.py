@@ -1,10 +1,10 @@
-from typing import List
+from typing import List, Optional
 
 from nps.models import Nps
 from users.models import User
 
 
-def nps_create(*, user: User, answer: int) -> Nps:
+def nps_create(*, user: Optional[User] = None, answer: int) -> Nps:
     return Nps.objects.create(user=user, answer=answer)
 
 

@@ -45,7 +45,12 @@ class CompanyUser(models.Model):
 class Nps(models.Model):
     answer = models.PositiveSmallIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        "users.User",
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE
+    )
 
     def __str__(self) -> str:
         return f"{self.user} -> {self.answer}"
