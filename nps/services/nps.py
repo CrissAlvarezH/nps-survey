@@ -1,4 +1,4 @@
-from typing import List, Optional, Tuple
+from typing import List, Optional
 
 from nps.models import CompanyUser, Nps
 from users.models import User

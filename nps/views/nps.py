@@ -1,13 +1,16 @@
-from typing import Callable, Tuple
+from typing import Callable
 from rest_framework import viewsets, status, mixins
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from nps.models import CompanyUser
-from nps.serializers.companies import CompanyUserListSerializer, CompanyUserRetrieveSerializer
+from nps.serializers.companies import CompanyUserRetrieveSerializer
 
 from nps.serializers.nps import NpsCreateSerializer, NpsRetrieveSerializer
 from nps.services.countries import country_list
-from nps.services.nps import get_detractors_top_by_country, get_edge_top_by_country, get_promoters_top_by_country, nps_create, nps_list
+from nps.services.nps import (
+    get_detractors_top_by_country,
+    get_edge_top_by_country,
+    get_promoters_top_by_country, nps_create, nps_list
+)
 from nps import signals
 
 
@@ -68,7 +71,7 @@ class NpsReportsViewSet(viewsets.ViewSet):
                 data[country.name] = top
         return data
 
-    @action(detail=False, methods=["GET"], url_path="detractors-top")    
+    @action(detail=False, methods=["GET"], url_path="detractors-top")
     def detractors_top(self, request):
         data = self.serialize_top(get_detractors_top_by_country)
         return Response(data)
