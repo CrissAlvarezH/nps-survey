@@ -1,6 +1,9 @@
+import email
+import random
+
 from faker import Faker
 from faker.providers import company as company_faker, profile as profile_faker
-from nps.models import Company, Country
+from nps.models import Company, CompanyUser, Country
 
 from users.models import User
 
@@ -14,8 +17,15 @@ class UserFactory:
     @classmethod
     def create(cls, amount: int = 1):
         users = []
-        for _ in range(amount):
+        while len(users) < amount:
             profile = faker.profile(["name", "mail"])
+
+            # avoid duplicity
+            if profile["mail"] in [u.email for u in users]:
+                continue
+            if User.objects.filter(email=profile["mail"]).exists():
+                continue
+
             users.append(User(
                 full_name=profile["name"],
                 email=profile["mail"]
@@ -24,12 +34,29 @@ class UserFactory:
         result = User.objects.bulk_create(users)
         return result[0] if amount == 1 else result
 
+    @classmethod
+    def create_company_relationship(cls, company: Company, amount: int = 1):
+        roles = [r[0] for r in CompanyUser.Roles.choices]
+
+        relationships = []
+        for _ in range(amount):
+            relationships.append(CompanyUser(
+                user=cls.create(),
+                company=company,
+                role=random.choice(roles)
+            ))
+
+        return CompanyUser.objects.bulk_create(relationships)
+
 
 class CountryFactory:
     @classmethod
     def create(cls, amount: int = 1):
         countries = []
-        for _ in range(amount):
+        while len(countries) < amount:
+            name = faker.company()
+            if name in [c.name for c in countries]:
+                continue  # avoid duplicity
             countries.append(Country(name=faker.country()))
 
         result = Country.objects.bulk_create(countries)

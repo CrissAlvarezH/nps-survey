@@ -31,6 +31,13 @@ class CompanyUserUpdateSerializer(serializers.Serializer):
     role = serializers.ChoiceField(choices=CompanyUser.Roles.choices)
 
 
+
+class CompanyCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Company
+        fields = "__all__"
+
+
 class CompanyListSerializer(serializers.ModelSerializer):
     total_persons = serializers.IntegerField()
 

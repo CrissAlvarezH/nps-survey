@@ -4,6 +4,7 @@ from rest_framework.response import Response
 
 from nps.models import Company, CompanyUser
 from nps.serializers.companies import (
+    CompanyCreateSerializer,
     CompanyListSerializer,
     CompanyRetrieveSerializer,
     CompanyUserCreateSerializer,
@@ -19,7 +20,7 @@ from nps.services.companies import (
 
 
 class CompanyViewSet(viewsets.ModelViewSet):
-    queryset = Company.objects.all()
+    queryset = Company.objects.all().order_by("id")
     permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
@@ -27,6 +28,8 @@ class CompanyViewSet(viewsets.ModelViewSet):
             return CompanyListSerializer
         elif self.action == "retrieve":
             return CompanyRetrieveSerializer
+        elif self.action in ["create", "update"]:
+            return CompanyCreateSerializer
 
 
 class CompanyUserRelationshipViewSet(viewsets.ModelViewSet):
@@ -36,7 +39,7 @@ class CompanyUserRelationshipViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return CompanyUser.objects.filter(
             company__id=self.kwargs["company_id"]
-        )
+        ).order_by("id")
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
