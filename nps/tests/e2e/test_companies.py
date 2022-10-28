@@ -115,3 +115,9 @@ class CompaniesApiTest(ApiBaseTest):
 
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         self.assertEqual(resp.data.get("pagination_data").get("count"), 4)
+
+    def test_error_unauthorized(self):
+        self.client.credentials(HTTP_AUTHORIZATION=None)
+        resp = self.client.get("/api/v1/nps/companies/")
+
+        self.assertEqual(resp.status_code, status.HTTP_401_UNAUTHORIZED)
