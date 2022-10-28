@@ -1,20 +1,21 @@
 from django.test import TransactionTestCase
-from nps.models import Company, CompanyUser, Country, Nps
-from nps.services.nps import get_detractors_top_by_country, get_edge_top_by_country, get_promoters_top_by_country, nps_create, nps_get_by_id, nps_list
-
-from users.models import User
+from nps.models import CompanyUser, Nps
+from nps.services.nps import (
+    get_detractors_top_by_country,
+    get_edge_top_by_country,
+    get_promoters_top_by_country,
+    nps_create,
+    nps_get_by_id, nps_list
+)
+from nps.tests.factories import CompanyFactory, CountryFactory, UserFactory
 
 
 class NpsTestCase(TransactionTestCase):
 
     def setUp(self) -> None:
-        self.user = User.objects.create(full_name="Cristian", email="cristian@email.com")
-        self.country = Country.objects.create(name="Country1")
-        self.company = Company.objects.create(
-            name="Company1",
-            description="company 1",
-            country_name=self.country
-        )
+        self.user = UserFactory.create()
+        self.country = CountryFactory.create()
+        self.company = CompanyFactory.create(country=self.country)
         self.relationship = CompanyUser.objects.create(
             user=self.user,
             company=self.company,
@@ -36,25 +37,11 @@ class NpsTestCase(TransactionTestCase):
 class NpsReportsTestCase(TransactionTestCase):
 
     def setUp(self) -> None:
-        self.users = [
-            User.objects.create(full_name=name, email=email)
-            for name, email in [
-                ("User 1", "user1@email.com"),
-                ("User 2", "user2@email.com"),
-                ("User 3", "user3@email.com"),
-                ("User 4", "user4@email.com"),
-            ]
-        ]
-        self.countries = [
-            Country.objects.create(name=name)
-            for name in ["Country1", "Country2"]
-        ]
+        self.users = UserFactory.create(amount=4)
+        self.countries = CountryFactory.create(amount=2)
         self.companies = [
-            Company.objects.create(name=name, description=desc, country_name=country)
-            for name, desc, country in [
-                ("Company 1", "C1", self.countries[0]),
-                ("Company 2", "C2", self.countries[1])
-            ]
+            CompanyFactory.create(country=self.countries[0]),
+            CompanyFactory.create(country=self.countries[1])
         ]
 
         # two users in each company

@@ -1,28 +1,30 @@
 from django.test import TransactionTestCase
-from nps.models import Company, CompanyUser, Country
+from nps.models import Company, CompanyUser
 
-from nps.services.companies import add_person_to_company, add_person_to_company_bulk, company_bulk_create, company_create, company_exist, company_exist_by_id, company_get, company_list, person_company_relationship_exists, remove_person_from_company, update_person_rol
-from users.models import User
+from nps.services.companies import (
+    add_person_to_company,
+    add_person_to_company_bulk,
+    company_bulk_create,
+    company_exist,
+    company_exist_by_id,
+    company_get,
+    company_list,
+    person_company_relationship_exists,
+    remove_person_from_company,
+    update_person_rol
+)
+from nps.tests.factories import CompanyFactory, CountryFactory, UserFactory
 
 
 class CompanyTestCase(TransactionTestCase):
     def setUp(self) -> None:
-        self.country = Country.objects.create(name="Country1")
+        self.country = CountryFactory.create()
         return super().setUp()
 
     def test_company_insert_and_fetch(self):
-        company1 = company_create(
-            name="Company1",
-            country=self.country.name,
-            description="Company number 1"
-        )
-        company_create(
-            name="Company2",
-            country=self.country.name,
-            description="Company number 2"
-        )
+        [company1, company2] = CompanyFactory.create(country=self.country, amount=2)
 
-        exists = company_exist(name="Company2")
+        exists = company_exist(name=company2.name)
         self.assertTrue(exists)
 
         companies_in_db = company_list()
@@ -49,15 +51,8 @@ class CompanyTestCase(TransactionTestCase):
         self.assertEqual(companies_in_db.count(), len(companies))
 
     def test_company_user_relationship(self):
-        user = User.objects.create(full_name="Cristian", email="cristian@email.com")
-        user.set_password("123456")
-        user.save()
-
-        company = company_create(
-            name="Company2",
-            country=self.country.name,
-            description="Company number 2"
-        )
+        user = UserFactory.create()
+        company = CompanyFactory.create(country=self.country)
 
         add_person_to_company(
             user_id=user.id,
@@ -91,27 +86,16 @@ class CompanyTestCase(TransactionTestCase):
         self.assertEqual(relationship_in_db.count(), 0)
 
     def test_add_person_to_company_bulk(self):
-        user = User.objects.create(full_name="Cristian", email="cristian@email.com")
-        company1 = company_create(
-            name="Company1",
-            country=self.country.name,
-            description="Company number 1"
-        )
-        company2 = company_create(
-            name="Company2",
-            country=self.country.name,
-            description="Company number 2"
-        )
-        company3 = company_create(
-            name="Company3",
-            country=self.country.name,
-            description="Company number 3"
-        )
+        user = UserFactory.create()
+        [company1, company2, company3] = CompanyFactory.create(self.country, amount=3)
 
         relationships = [
-            CompanyUser(role=CompanyUser.Roles.ACCOUNT_MANAGER, user=user, company=company1),
-            CompanyUser(role=CompanyUser.Roles.CONSULTANT, user=user, company=company2),
-            CompanyUser(role=CompanyUser.Roles.CONTACT, user=user, company=company3),
+            CompanyUser(role=role, user=user, company=company)
+            for role, user, company in [
+                (CompanyUser.Roles.ACCOUNT_MANAGER, user, company1),
+                (CompanyUser.Roles.CONSULTANT, user, company2),
+                (CompanyUser.Roles.CONTACT, user, company3),
+            ]
         ]
 
         response = add_person_to_company_bulk(relationships=relationships)
