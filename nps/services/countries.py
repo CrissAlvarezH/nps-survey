@@ -11,3 +11,7 @@ def country_get(*, name: str) -> Country:
 
 def country_exists(*, name: str) -> bool:
     return Country.objects.filter(name=name).exists()
+
+
+def country_list():
+    return Country.objects.all()

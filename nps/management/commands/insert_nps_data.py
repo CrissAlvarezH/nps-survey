@@ -87,7 +87,7 @@ class Command(BaseCommand):
         # insert nps surveys
         nps_surveys = []
         for person in company_users_in_db:
-            nps_answer = Nps(person=person, answer=random.randint(1, 10))
+            nps_answer = Nps(person=person, answer=random.randint(0, 10))
             nps_surveys.append(nps_answer)
 
         nps_create_bulk(nps_surveys=nps_surveys)

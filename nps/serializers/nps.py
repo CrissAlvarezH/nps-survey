@@ -35,7 +35,7 @@ class NpsCreateSerializer(serializers.Serializer):
         return value
 
     def validate_answer(self, value):
-        if value > 10 and value < 1:
-            raise ValidationError("answer invalid, valid values: 1 - 10")
+        if value > 10 and value < 0:
+            raise ValidationError("answer invalid, valid values: 0 - 10")
 
         return value
