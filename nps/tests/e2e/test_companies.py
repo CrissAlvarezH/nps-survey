@@ -1,27 +1,11 @@
 from rest_framework import status
 from nps.models import CompanyUser
 
-from nps.tests.factories import CompanyFactory, CountryFactory, UserFactory
-from .setup import ApiBaseTest
+from nps.tests.factories import UserFactory
+from .setup import ApiBaseTest, SetupCompaniesData
 
 
-class CompaniesApiTest(ApiBaseTest):
-    def setUp(self) -> None:
-        self.countries = CountryFactory.create(amount=3)
-
-        self.companies = []
-        for country in self.countries:
-            self.companies.extend(CompanyFactory.create(country=country, amount=10))
-
-        self.users = []
-        for company in self.companies:
-            self.users.extend(UserFactory.create_company_relationship(company, amount=5))
-
-        response = super().setUp()
-        self.client.credentials(HTTP_AUTHORIZATION=f"Bearer {self.token}")
-
-        return response
-
+class CompaniesApiTest(SetupCompaniesData, ApiBaseTest):
     def test_fetch_company(self):
         resp = self.client.get("/api/v1/nps/companies/")
 

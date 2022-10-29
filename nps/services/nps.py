@@ -11,7 +11,10 @@ def nps_create(
     metadata: Optional[dict] = None,
     answer: int
 ) -> Nps:
-    person = CompanyUser.objects.get(user_id=user.id, company_id=company_id)
+    if user:
+        person = CompanyUser.objects.get(user_id=user.id, company_id=company_id)
+    else:
+        person = None
     return Nps.objects.create(person=person, answer=answer, metadata=metadata)
 
 
@@ -33,9 +36,9 @@ def nps_update(*, id: int, **kwargs) -> Nps:
 
 def nps_list(**filters):
     if filters:
-        return Nps.objects.filter(**filters)
+        return Nps.objects.filter(**filters).order_by("id")
     else:
-        return Nps.objects.all()
+        return Nps.objects.all().order_by("id")
 
 
 def get_detractors_top_by_country(*, country: str, top: int = 3):

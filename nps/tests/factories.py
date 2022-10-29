@@ -1,4 +1,3 @@
-import email
 import random
 
 from faker import Faker
@@ -28,7 +27,7 @@ class UserFactory:
 
             users.append(User(
                 full_name=profile["name"],
-                email=profile["mail"]
+                email=profile["mail"],
             ))
 
         result = User.objects.bulk_create(users)
@@ -55,12 +54,10 @@ class CountryFactory:
         countries = []
         while len(countries) < amount:
             name = faker.company()
-            if name in [c.name for c in countries]:
-                continue  # avoid duplicity
-            countries.append(Country(name=faker.country()))
+            country, _ = Country.objects.get_or_create(name=name)
+            countries.append(country)
 
-        result = Country.objects.bulk_create(countries)
-        return result[0] if amount == 1 else result
+        return countries[0] if amount == 1 else countries
 
 
 class CompanyFactory:
