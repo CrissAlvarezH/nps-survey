@@ -81,6 +81,8 @@ coverage.xml
 *.mo
 *.pot
 
+sandbox.txt
+
 # Sphinx documentation
 docs/_build/
 
