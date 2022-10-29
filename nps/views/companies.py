@@ -14,7 +14,6 @@ from nps.serializers.companies import (
 )
 from nps.services.companies import (
     add_person_to_company,
-    company_exist,
     company_exist_by_id,
     person_company_relationship_exists,
     remove_person_from_company,
@@ -70,6 +69,14 @@ class CompanyUserRelationshipViewSet(viewsets.ModelViewSet):
         return Response(output_data, status=status.HTTP_201_CREATED)
 
     def update(self, request, pk, company_id):
+        if not company_exist_by_id(id=company_id):
+            raise ValidationError("Company does not exists")
+
+        if not person_company_relationship_exists(
+            user_id=pk, company_id=company_id
+        ):
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
         serializer = CompanyUserUpdateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = serializer.data
