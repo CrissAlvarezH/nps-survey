@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.exceptions import ValidationError
 
 from nps.models import Company, CompanyUser
 from nps.serializers.companies import (
@@ -13,6 +14,8 @@ from nps.serializers.companies import (
 )
 from nps.services.companies import (
     add_person_to_company,
+    company_exist,
+    company_exist_by_id,
     person_company_relationship_exists,
     remove_person_from_company,
     update_person_rol
@@ -47,6 +50,9 @@ class CompanyUserRelationshipViewSet(viewsets.ModelViewSet):
         return context
 
     def create(self, request, company_id):
+        if not company_exist_by_id(id=company_id):
+            raise ValidationError("Company does not exists")
+
         serializer = CompanyUserCreateSerializer(
             data=request.data,
             context={"company_id": company_id}
