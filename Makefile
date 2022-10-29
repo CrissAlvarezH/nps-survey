@@ -6,6 +6,12 @@ up-db:
 up: up-db
 	docker compose up app
 
+test:
+	docker compose up database -d
+	sleep 3
+	python manage.py test
+	docker compose down
+
 down:
 	docker compose down
 
