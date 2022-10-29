@@ -50,3 +50,13 @@ class NpsApiTest(SetupCompaniesData, ApiBaseTest):
 
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         self.assertEqual(resp.data.get("pagination_data").get("count"), len(self.nps_survey) + 1)
+
+    def test_detractors_top(self):
+        resp = self.client.get("/api/v1/nps/reports/detractors-top/")
+
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+
+    def test_promoters_top(self):
+        resp = self.client.get("/api/v1/nps/reports/promoters-top/")
+
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
