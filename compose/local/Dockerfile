@@ -20,6 +20,6 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 COPY . /code
 
-RUN chmod +x ./docker-entrypoint.sh
+RUN chmod +x ./compose/local/docker-entrypoint.sh
 
-ENTRYPOINT [ "./docker-entrypoint.sh" ]
+ENTRYPOINT [ "./compose/local/docker-entrypoint.sh" ]
