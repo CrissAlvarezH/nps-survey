@@ -1,0 +1,1242 @@
+{
+	"info": {
+		"_postman_id": "ebf416b7-7fa0-42b1-9080-fac972e7b2a6",
+		"name": "NPS Survey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3559511"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v1/users",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/v1/users",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"pagination_data\": {\n        \"links\": {\n            \"next\": \"http://localhost:8000/api/v1/users/?page=2\",\n            \"previous\": null\n        },\n        \"total_pages\": 11,\n        \"on_page\": 25,\n        \"page\": 1,\n        \"count\": 257\n    },\n    \"results\": [\n        {\n            \"id\": 2,\n            \"full_name\": \"Gregory Moore\",\n            \"email\": \"andrewbrown@gmail.com\"\n        },\n        {\n            \"id\": 3,\n            \"full_name\": \"Peggy Sherman\",\n            \"email\": \"fieldsmichael@yahoo.com\"\n        },\n        {\n            \"id\": 4,\n            \"full_name\": \"Crystal Bender DDS\",\n            \"email\": \"walkerthomas@gmail.com\"\n        },\n        {\n            \"id\": 5,\n            \"full_name\": \"Jocelyn Ferguson\",\n            \"email\": \"uperez@hotmail.com\"\n        },\n        {\n            \"id\": 6,\n            \"full_name\": \"Mikayla Rice\",\n            \"email\": \"sandraalvarez@yahoo.com\"\n        },\n        {\n            \"id\": 7,\n            \"full_name\": \"Matthew Daugherty\",\n            \"email\": \"bryan01@gmail.com\"\n        },\n        {\n            \"id\": 8,\n            \"full_name\": \"Kevin Diaz\",\n            \"email\": \"jjones@yahoo.com\"\n        },\n        {\n            \"id\": 9,\n            \"full_name\": \"Bruce Carter\",\n            \"email\": \"tlee@gmail.com\"\n        },\n        {\n            \"id\": 10,\n            \"full_name\": \"Sherry Turner\",\n            \"email\": \"landerson@yahoo.com\"\n        },\n        {\n            \"id\": 11,\n            \"full_name\": \"Michelle Snow\",\n            \"email\": \"rcastillo@hotmail.com\"\n        },\n        {\n            \"id\": 12,\n            \"full_name\": \"Brian Weaver\",\n            \"email\": \"ejones@hotmail.com\"\n        },\n        {\n            \"id\": 13,\n            \"full_name\": \"Lynn Harris\",\n            \"email\": \"laura55@gmail.com\"\n        },\n        {\n            \"id\": 14,\n            \"full_name\": \"Frank Marshall\",\n            \"email\": \"michael02@hotmail.com\"\n        },\n        {\n            \"id\": 15,\n            \"full_name\": \"Justin Jones\",\n            \"email\": \"geoffreystewart@hotmail.com\"\n        },\n        {\n            \"id\": 16,\n            \"full_name\": \"Olivia French\",\n            \"email\": \"normanthompson@gmail.com\"\n        },\n        {\n            \"id\": 17,\n            \"full_name\": \"Mrs. Christine Morris\",\n            \"email\": \"robertthompson@gmail.com\"\n        },\n        {\n            \"id\": 18,\n            \"full_name\": \"Leslie Russo\",\n            \"email\": \"jonathanprice@gmail.com\"\n        },\n        {\n            \"id\": 19,\n            \"full_name\": \"Stephanie Khan\",\n            \"email\": \"starkjennifer@yahoo.com\"\n        },\n        {\n            \"id\": 20,\n            \"full_name\": \"Janice Bailey\",\n            \"email\": \"garciacatherine@hotmail.com\"\n        },\n        {\n            \"id\": 21,\n            \"full_name\": \"Veronica Stanley\",\n            \"email\": \"brett44@hotmail.com\"\n        },\n        {\n            \"id\": 22,\n            \"full_name\": \"Maureen Morales\",\n            \"email\": \"daniel72@gmail.com\"\n        },\n        {\n            \"id\": 23,\n            \"full_name\": \"John Nguyen\",\n            \"email\": \"rogerdiaz@yahoo.com\"\n        },\n        {\n            \"id\": 24,\n            \"full_name\": \"Lisa Davis\",\n            \"email\": \"bpeterson@gmail.com\"\n        },\n        {\n            \"id\": 25,\n            \"full_name\": \"Brittany Lucas\",\n            \"email\": \"lawrencekenneth@yahoo.com\"\n        },\n        {\n            \"id\": 26,\n            \"full_name\": \"Kelly Cain\",\n            \"email\": \"donnaoconnor@gmail.com\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Retrieve user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v1/users/:user_id",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "16"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Retrieve user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/v1/users/:user_id",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": "16"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"id\": 16,\n    \"full_name\": \"Olivia French\",\n    \"email\": \"normanthompson@gmail.com\",\n    \"companies\": [\n        {\n            \"id\": 2,\n            \"name\": \"Ortiz, Salazar and White\",\n            \"country_name\": \"Argentina\",\n            \"total_persons\": 8\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resp = pm.response.json()",
+									"",
+									"pm.environment.set(\"token\", resp.access)",
+									"pm.environment.set(\"refresh_token\", resp.refresh)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{user}}\",\n    \"password\": \"{{password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v1/users/auth/",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"auth",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Auth",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{user}}\",\n    \"password\": \"{{password}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/v1/users/auth/",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"auth",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2NzUzMTYyMiwiaWF0IjoxNjY3MDEzMjIyLCJqdGkiOiI2YWViOTE5NTU3NjA0MWVkOTQ3MzUwYWM5YWYzODA5ZSIsInVzZXJfaWQiOjF9.byM5rvmgwbko98ZhFbGCXJ2Hyu0NphruJiGITC74uUQ\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDk5NjIyLCJpYXQiOjE2NjcwMTMyMjIsImp0aSI6IjAyMDgxOWQ3Njk5YTQxODRhMWIzMTdmODgyN2Y0YzdjIiwidXNlcl9pZCI6MX0.eSe4ToPGjsxzNGujWRFSC6-X2gyf0Plt7YFOMiZoCno\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resp = pm.response.json()",
+									"",
+									"pm.environment.set(\"token\", resp.access)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh\": \"{{refresh_token}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v1/users/auth/refresh/",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"auth",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Refresh token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"refresh\": \"{{refresh_token}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/v1/users/auth/refresh/",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"auth",
+										"refresh",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDk5NjcxLCJpYXQiOjE2NjcwMTMyMjIsImp0aSI6IjUyMWY4ZDkxMTFkZTQ2NjViOGFiOTk5N2FmZjU3NzQ1IiwidXNlcl9pZCI6MX0.tFxUHGowDXaVtcfwzbkeXN14qgrGp5wc5cBD3aYq3B0\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "NPS",
+			"item": [
+				{
+					"name": "Companies",
+					"item": [
+						{
+							"name": "Persons",
+							"item": [
+								{
+									"name": "List company persons",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/companies/:company_id/persons",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"companies",
+												":company_id",
+												"persons"
+											],
+											"variable": [
+												{
+													"key": "company_id",
+													"value": "4"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "List company persons",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{domain}}/api/v1/nps/companies/:company_id/persons",
+													"host": [
+														"{{domain}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"nps",
+														"companies",
+														":company_id",
+														"persons"
+													],
+													"variable": [
+														{
+															"key": "company_id",
+															"value": "4"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"body": "{\n    \"pagination_data\": {\n        \"links\": {\n            \"next\": null,\n            \"previous\": null\n        },\n        \"total_pages\": 1,\n        \"on_page\": 8,\n        \"page\": 1,\n        \"count\": 8\n    },\n    \"results\": [\n        {\n            \"user\": {\n                \"id\": 26,\n                \"full_name\": \"Kelly Cain\",\n                \"email\": \"donnaoconnor@gmail.com\"\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 27,\n                \"full_name\": \"Megan Jones\",\n                \"email\": \"ojenkins@hotmail.com\"\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 28,\n                \"full_name\": \"Christian Navarro\",\n                \"email\": \"davilasuzanne@hotmail.com\"\n            },\n            \"role\": \"ACC_MANAGER\"\n        },\n        {\n            \"user\": {\n                \"id\": 29,\n                \"full_name\": \"Heidi Moore\",\n                \"email\": \"sarahlopez@yahoo.com\"\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 30,\n                \"full_name\": \"Lisa Johnson\",\n                \"email\": \"justin73@gmail.com\"\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 31,\n                \"full_name\": \"Andrea Johnson\",\n                \"email\": \"burgesswilliam@yahoo.com\"\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        {\n            \"user\": {\n                \"id\": 32,\n                \"full_name\": \"Donna Gomez\",\n                \"email\": \"josemoore@gmail.com\"\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 33,\n                \"full_name\": \"Amber Melendez\",\n                \"email\": \"colemancurtis@yahoo.com\"\n            },\n            \"role\": \"SHAREHOLDER\"\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Add person to company",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"user\": {\n        \"id\": 1\n    },\n    \"role\": \"CONSULTANT\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/companies/:company_id/persons/",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"companies",
+												":company_id",
+												"persons",
+												""
+											],
+											"variable": [
+												{
+													"key": "company_id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Add person to company",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"user\": {\n        \"id\": 1\n    },\n    \"role\": \"CONSULTANT\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{domain}}/api/v1/nps/companies/:company_id/persons/",
+													"host": [
+														"{{domain}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"nps",
+														"companies",
+														":company_id",
+														"persons",
+														""
+													],
+													"variable": [
+														{
+															"key": "company_id",
+															"value": "4"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"body": "{\n    \"user\": {\n        \"id\": 1,\n        \"full_name\": \"Root\",\n        \"email\": \"root@email.com\"\n    },\n    \"role\": \"CONSULTANT\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update person rol",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"role\": \"CONSULTANT\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/companies/:company_id/persons/:person_id/",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"companies",
+												":company_id",
+												"persons",
+												":person_id",
+												""
+											],
+											"variable": [
+												{
+													"key": "company_id",
+													"value": "2"
+												},
+												{
+													"key": "person_id",
+													"value": "14"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Update person rol",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"role\": \"CONSULTANT\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{domain}}/api/v1/nps/companies/:company_id/persons/:person_id/",
+													"host": [
+														"{{domain}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"nps",
+														"companies",
+														":company_id",
+														"persons",
+														":person_id",
+														""
+													],
+													"variable": [
+														{
+															"key": "company_id",
+															"value": "2"
+														},
+														{
+															"key": "person_id",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"body": "{\n    \"user\": {\n        \"id\": 1,\n        \"full_name\": \"Root\",\n        \"email\": \"root@email.com\"\n    },\n    \"role\": \"CONSULTANT\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Remove person from company",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/companies/:company_id/persons/:person_id/",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"companies",
+												":company_id",
+												"persons",
+												":person_id",
+												""
+											],
+											"variable": [
+												{
+													"key": "company_id",
+													"value": "1"
+												},
+												{
+													"key": "person_id",
+													"value": "13"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Remove person from company",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{domain}}/api/v1/nps/companies/:company_id/persons/:person_id/",
+													"host": [
+														"{{domain}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"nps",
+														"companies",
+														":company_id",
+														"persons",
+														":person_id",
+														""
+													],
+													"variable": [
+														{
+															"key": "company_id",
+															"value": "1"
+														},
+														{
+															"key": "person_id",
+															"value": "13"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "List companies",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/companies?page=1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List companies",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/companies?page=1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"companies"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"pagination_data\": {\n        \"links\": {\n            \"next\": \"http://localhost:8000/api/v1/nps/companies/?page=2\",\n            \"previous\": null\n        },\n        \"total_pages\": 2,\n        \"on_page\": 25,\n        \"page\": 1,\n        \"count\": 33\n    },\n    \"results\": [\n        {\n            \"id\": 2,\n            \"name\": \"Ortiz, Salazar and White\",\n            \"description\": \"Versatile regional parallelism\",\n            \"country_name\": \"Argentina\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Wagner-Baker\",\n            \"description\": \"Triple-buffered multi-tasking policy\",\n            \"country_name\": \"Argentina\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Brown Ltd\",\n            \"description\": \"Reduced fault-tolerant access\",\n            \"country_name\": \"Argentina\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Hickman, Lyons and Petersen\",\n            \"description\": \"Cross-group hybrid leverage\",\n            \"country_name\": \"Bolivia\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Rosales-Jackson\",\n            \"description\": \"Fundamental multi-state synergy\",\n            \"country_name\": \"Bolivia\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Navarro-Stephenson\",\n            \"description\": \"Profit-focused analyzing framework\",\n            \"country_name\": \"Bolivia\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Armstrong, Williams and Frye\",\n            \"description\": \"Exclusive asymmetric open architecture\",\n            \"country_name\": \"Bolivia\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Bowman Inc\",\n            \"description\": \"Multi-layered directional interface\",\n            \"country_name\": \"Brasil\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Hudson Ltd\",\n            \"description\": \"Multi-tiered leadingedge framework\",\n            \"country_name\": \"Brasil\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 11,\n            \"name\": \"Rogers-Richardson\",\n            \"description\": \"Multi-lateral global concept\",\n            \"country_name\": \"Brasil\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Stephens PLC\",\n            \"description\": \"Multi-channeled intangible implementation\",\n            \"country_name\": \"Chile\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Larson, Smith and Williams\",\n            \"description\": \"User-friendly incremental policy\",\n            \"country_name\": \"Chile\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Jackson-Klein\",\n            \"description\": \"Programmable human-resource hub\",\n            \"country_name\": \"Chile\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 15,\n            \"name\": \"Evans-Navarro\",\n            \"description\": \"Configurable human-resource framework\",\n            \"country_name\": \"Chile\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 16,\n            \"name\": \"Conner Ltd\",\n            \"description\": \"Monitored explicit installation\",\n            \"country_name\": \"Colombia\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 17,\n            \"name\": \"Jackson-Moore\",\n            \"description\": \"Extended next generation model\",\n            \"country_name\": \"Colombia\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 18,\n            \"name\": \"Cannon-Mclean\",\n            \"description\": \"Persistent maximized data-warehouse\",\n            \"country_name\": \"Colombia\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 19,\n            \"name\": \"Campbell, Lara and Smith\",\n            \"description\": \"Ameliorated non-volatile adapter\",\n            \"country_name\": \"Colombia\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 20,\n            \"name\": \"Coleman Ltd\",\n            \"description\": \"De-engineered asymmetric model\",\n            \"country_name\": \"Colombia\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 21,\n            \"name\": \"Rodriguez-Taylor\",\n            \"description\": \"Inverse discrete extranet\",\n            \"country_name\": \"Costa Rica\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 22,\n            \"name\": \"Maldonado-Carney\",\n            \"description\": \"Networked uniform neural-net\",\n            \"country_name\": \"Costa Rica\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 23,\n            \"name\": \"Sanchez LLC\",\n            \"description\": \"Phased regional alliance\",\n            \"country_name\": \"Costa Rica\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 24,\n            \"name\": \"Sanchez, Young and Woods\",\n            \"description\": \"Phased full-range instruction set\",\n            \"country_name\": \"Cuba\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 25,\n            \"name\": \"Davis-Guzman\",\n            \"description\": \"User-friendly fresh-thinking portal\",\n            \"country_name\": \"Cuba\",\n            \"total_persons\": 8\n        },\n        {\n            \"id\": 26,\n            \"name\": \"Whitney, Hart and Stewart\",\n            \"description\": \"Total value-added task-force\",\n            \"country_name\": \"Cuba\",\n            \"total_persons\": 8\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Retreive company",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/companies/:company_id",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"companies",
+										":company_id"
+									],
+									"variable": [
+										{
+											"key": "company_id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Retreive company",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/companies/:company_id",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"companies",
+												":company_id"
+											],
+											"variable": [
+												{
+													"key": "company_id",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 10,\n    \"name\": \"Hudson Ltd\",\n    \"description\": \"Multi-tiered leadingedge framework\",\n    \"country_name\": \"Brasil\",\n    \"persons\": [\n        {\n            \"user\": {\n                \"id\": 74,\n                \"full_name\": \"Krista Parker\",\n                \"email\": \"ucannon@yahoo.com\"\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 75,\n                \"full_name\": \"Kevin Morgan\",\n                \"email\": \"briansalinas@yahoo.com\"\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 76,\n                \"full_name\": \"Stephanie Evans\",\n                \"email\": \"ochristensen@yahoo.com\"\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 77,\n                \"full_name\": \"Travis Atkinson\",\n                \"email\": \"dawnshepherd@gmail.com\"\n            },\n            \"role\": \"ACC_MANAGER\"\n        },\n        {\n            \"user\": {\n                \"id\": 78,\n                \"full_name\": \"Karen Johnson\",\n                \"email\": \"rachel49@gmail.com\"\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 79,\n                \"full_name\": \"Ashley Rowe\",\n                \"email\": \"patty37@yahoo.com\"\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 80,\n                \"full_name\": \"Anne Ramos\",\n                \"email\": \"katherinegomez@gmail.com\"\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        {\n            \"user\": {\n                \"id\": 81,\n                \"full_name\": \"Dr. Lisa Mitchell\",\n                \"email\": \"lauren51@hotmail.com\"\n            },\n            \"role\": \"ACC_MANAGER\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Create company",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Farley-Valdez\",\n    \"description\": \"Polarized bandwidth-monitored groupware\",\n    \"country_name\": \"Argentina\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/companies/",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"companies",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create company",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Farley-Valdez\",\n    \"description\": \"Polarized bandwidth-monitored groupware\",\n    \"country_name\": \"Argentina\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/companies/",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"companies",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 35,\n    \"name\": \"Farley-Valdez\",\n    \"description\": \"Polarized bandwidth-monitored groupware\",\n    \"country_name\": \"Argentina\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update company",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Farley-Valdez Update\",\n    \"description\": \"Polarized bandwidth-monitored groupware\",\n    \"country_name\": \"Argentina\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/companies/:company_id/",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"companies",
+										":company_id",
+										""
+									],
+									"variable": [
+										{
+											"key": "company_id",
+											"value": "34"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update company",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Farley-Valdez Update\",\n    \"description\": \"Polarized bandwidth-monitored groupware\",\n    \"country_name\": \"Argentina\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/companies/:company_id/",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"companies",
+												":company_id",
+												""
+											],
+											"variable": [
+												{
+													"key": "company_id",
+													"value": "34"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 34,\n    \"name\": \"Farley-Valdez Update\",\n    \"description\": \"Polarized bandwidth-monitored groupware\",\n    \"country_name\": \"Argentina\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete company",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/companies/:company_id/",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"companies",
+										":company_id",
+										""
+									],
+									"variable": [
+										{
+											"key": "company_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete company",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/companies/:company_id/",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"companies",
+												":company_id",
+												""
+											],
+											"variable": [
+												{
+													"key": "company_id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Surveys",
+					"item": [
+						{
+							"name": "List NPS survey answers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/surveys?page=1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"surveys"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List NPS survey answers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/surveys?page=1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"surveys"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"pagination_data\": {\n        \"links\": {\n            \"next\": \"http://localhost:8000/api/v1/nps/surveys/?page=2\",\n            \"previous\": null\n        },\n        \"total_pages\": 10,\n        \"on_page\": 25,\n        \"page\": 1,\n        \"count\": 240\n    },\n    \"results\": [\n        {\n            \"id\": 9,\n            \"person\": {\n                \"user\": {\n                    \"id\": 10,\n                    \"full_name\": \"Sherry Turner\",\n                    \"email\": \"landerson@yahoo.com\"\n                },\n                \"company\": {\n                    \"id\": 2,\n                    \"name\": \"Ortiz, Salazar and White\",\n                    \"description\": \"Versatile regional parallelism\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONSULTANT\"\n            },\n            \"answer\": 9,\n            \"created_at\": \"2022-10-28T02:09:06.336318Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 10,\n            \"person\": {\n                \"user\": {\n                    \"id\": 11,\n                    \"full_name\": \"Michelle Snow\",\n                    \"email\": \"rcastillo@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 2,\n                    \"name\": \"Ortiz, Salazar and White\",\n                    \"description\": \"Versatile regional parallelism\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 3,\n            \"created_at\": \"2022-10-28T02:09:06.336332Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 11,\n            \"person\": {\n                \"user\": {\n                    \"id\": 12,\n                    \"full_name\": \"Brian Weaver\",\n                    \"email\": \"ejones@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 2,\n                    \"name\": \"Ortiz, Salazar and White\",\n                    \"description\": \"Versatile regional parallelism\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"ACC_MANAGER\"\n            },\n            \"answer\": 2,\n            \"created_at\": \"2022-10-28T02:09:06.336346Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 12,\n            \"person\": {\n                \"user\": {\n                    \"id\": 13,\n                    \"full_name\": \"Lynn Harris\",\n                    \"email\": \"laura55@gmail.com\"\n                },\n                \"company\": {\n                    \"id\": 2,\n                    \"name\": \"Ortiz, Salazar and White\",\n                    \"description\": \"Versatile regional parallelism\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONSULTANT\"\n            },\n            \"answer\": 9,\n            \"created_at\": \"2022-10-28T02:09:06.336360Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 13,\n            \"person\": {\n                \"user\": {\n                    \"id\": 14,\n                    \"full_name\": \"Frank Marshall\",\n                    \"email\": \"michael02@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 2,\n                    \"name\": \"Ortiz, Salazar and White\",\n                    \"description\": \"Versatile regional parallelism\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONSULTANT\"\n            },\n            \"answer\": 7,\n            \"created_at\": \"2022-10-28T02:09:06.336373Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 14,\n            \"person\": {\n                \"user\": {\n                    \"id\": 15,\n                    \"full_name\": \"Justin Jones\",\n                    \"email\": \"geoffreystewart@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 2,\n                    \"name\": \"Ortiz, Salazar and White\",\n                    \"description\": \"Versatile regional parallelism\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 10,\n            \"created_at\": \"2022-10-28T02:09:06.336387Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 15,\n            \"person\": {\n                \"user\": {\n                    \"id\": 16,\n                    \"full_name\": \"Olivia French\",\n                    \"email\": \"normanthompson@gmail.com\"\n                },\n                \"company\": {\n                    \"id\": 2,\n                    \"name\": \"Ortiz, Salazar and White\",\n                    \"description\": \"Versatile regional parallelism\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONTACT\"\n            },\n            \"answer\": 5,\n            \"created_at\": \"2022-10-28T02:09:06.336400Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 16,\n            \"person\": {\n                \"user\": {\n                    \"id\": 17,\n                    \"full_name\": \"Mrs. Christine Morris\",\n                    \"email\": \"robertthompson@gmail.com\"\n                },\n                \"company\": {\n                    \"id\": 2,\n                    \"name\": \"Ortiz, Salazar and White\",\n                    \"description\": \"Versatile regional parallelism\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONSULTANT\"\n            },\n            \"answer\": 3,\n            \"created_at\": \"2022-10-28T02:09:06.336414Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 25,\n            \"person\": {\n                \"user\": {\n                    \"id\": 26,\n                    \"full_name\": \"Kelly Cain\",\n                    \"email\": \"donnaoconnor@gmail.com\"\n                },\n                \"company\": {\n                    \"id\": 4,\n                    \"name\": \"Brown Ltd\",\n                    \"description\": \"Reduced fault-tolerant access\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 6,\n            \"created_at\": \"2022-10-28T02:09:06.336535Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 26,\n            \"person\": {\n                \"user\": {\n                    \"id\": 27,\n                    \"full_name\": \"Megan Jones\",\n                    \"email\": \"ojenkins@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 4,\n                    \"name\": \"Brown Ltd\",\n                    \"description\": \"Reduced fault-tolerant access\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONTACT\"\n            },\n            \"answer\": 5,\n            \"created_at\": \"2022-10-28T02:09:06.336549Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 27,\n            \"person\": {\n                \"user\": {\n                    \"id\": 28,\n                    \"full_name\": \"Christian Navarro\",\n                    \"email\": \"davilasuzanne@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 4,\n                    \"name\": \"Brown Ltd\",\n                    \"description\": \"Reduced fault-tolerant access\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"ACC_MANAGER\"\n            },\n            \"answer\": 2,\n            \"created_at\": \"2022-10-28T02:09:06.336562Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 28,\n            \"person\": {\n                \"user\": {\n                    \"id\": 29,\n                    \"full_name\": \"Heidi Moore\",\n                    \"email\": \"sarahlopez@yahoo.com\"\n                },\n                \"company\": {\n                    \"id\": 4,\n                    \"name\": \"Brown Ltd\",\n                    \"description\": \"Reduced fault-tolerant access\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONTACT\"\n            },\n            \"answer\": 1,\n            \"created_at\": \"2022-10-28T02:09:06.336576Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 29,\n            \"person\": {\n                \"user\": {\n                    \"id\": 30,\n                    \"full_name\": \"Lisa Johnson\",\n                    \"email\": \"justin73@gmail.com\"\n                },\n                \"company\": {\n                    \"id\": 4,\n                    \"name\": \"Brown Ltd\",\n                    \"description\": \"Reduced fault-tolerant access\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONTACT\"\n            },\n            \"answer\": 9,\n            \"created_at\": \"2022-10-28T02:09:06.336589Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 30,\n            \"person\": {\n                \"user\": {\n                    \"id\": 31,\n                    \"full_name\": \"Andrea Johnson\",\n                    \"email\": \"burgesswilliam@yahoo.com\"\n                },\n                \"company\": {\n                    \"id\": 4,\n                    \"name\": \"Brown Ltd\",\n                    \"description\": \"Reduced fault-tolerant access\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONSULTANT\"\n            },\n            \"answer\": 2,\n            \"created_at\": \"2022-10-28T02:09:06.336603Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 31,\n            \"person\": {\n                \"user\": {\n                    \"id\": 32,\n                    \"full_name\": \"Donna Gomez\",\n                    \"email\": \"josemoore@gmail.com\"\n                },\n                \"company\": {\n                    \"id\": 4,\n                    \"name\": \"Brown Ltd\",\n                    \"description\": \"Reduced fault-tolerant access\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 3,\n            \"created_at\": \"2022-10-28T02:09:06.336616Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 32,\n            \"person\": {\n                \"user\": {\n                    \"id\": 33,\n                    \"full_name\": \"Amber Melendez\",\n                    \"email\": \"colemancurtis@yahoo.com\"\n                },\n                \"company\": {\n                    \"id\": 4,\n                    \"name\": \"Brown Ltd\",\n                    \"description\": \"Reduced fault-tolerant access\",\n                    \"country_name\": \"Argentina\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 8,\n            \"created_at\": \"2022-10-28T02:09:06.336630Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 33,\n            \"person\": {\n                \"user\": {\n                    \"id\": 34,\n                    \"full_name\": \"Emma Watson\",\n                    \"email\": \"jamesvaldez@gmail.com\"\n                },\n                \"company\": {\n                    \"id\": 5,\n                    \"name\": \"Hickman, Lyons and Petersen\",\n                    \"description\": \"Cross-group hybrid leverage\",\n                    \"country_name\": \"Bolivia\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"ACC_MANAGER\"\n            },\n            \"answer\": 9,\n            \"created_at\": \"2022-10-28T02:09:06.336643Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 34,\n            \"person\": {\n                \"user\": {\n                    \"id\": 35,\n                    \"full_name\": \"Ashley Lucero\",\n                    \"email\": \"anitawarren@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 5,\n                    \"name\": \"Hickman, Lyons and Petersen\",\n                    \"description\": \"Cross-group hybrid leverage\",\n                    \"country_name\": \"Bolivia\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONTACT\"\n            },\n            \"answer\": 2,\n            \"created_at\": \"2022-10-28T02:09:06.336657Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 35,\n            \"person\": {\n                \"user\": {\n                    \"id\": 36,\n                    \"full_name\": \"Joseph Aguilar\",\n                    \"email\": \"tpitts@yahoo.com\"\n                },\n                \"company\": {\n                    \"id\": 5,\n                    \"name\": \"Hickman, Lyons and Petersen\",\n                    \"description\": \"Cross-group hybrid leverage\",\n                    \"country_name\": \"Bolivia\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 4,\n            \"created_at\": \"2022-10-28T02:09:06.336670Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 36,\n            \"person\": {\n                \"user\": {\n                    \"id\": 37,\n                    \"full_name\": \"James Jordan\",\n                    \"email\": \"williamsgeorge@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 5,\n                    \"name\": \"Hickman, Lyons and Petersen\",\n                    \"description\": \"Cross-group hybrid leverage\",\n                    \"country_name\": \"Bolivia\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 9,\n            \"created_at\": \"2022-10-28T02:09:06.336683Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 37,\n            \"person\": {\n                \"user\": {\n                    \"id\": 38,\n                    \"full_name\": \"Kimberly Powers\",\n                    \"email\": \"parkstiffany@yahoo.com\"\n                },\n                \"company\": {\n                    \"id\": 5,\n                    \"name\": \"Hickman, Lyons and Petersen\",\n                    \"description\": \"Cross-group hybrid leverage\",\n                    \"country_name\": \"Bolivia\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"CONTACT\"\n            },\n            \"answer\": 1,\n            \"created_at\": \"2022-10-28T02:09:06.336697Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 38,\n            \"person\": {\n                \"user\": {\n                    \"id\": 39,\n                    \"full_name\": \"Lauren Fletcher\",\n                    \"email\": \"bbailey@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 5,\n                    \"name\": \"Hickman, Lyons and Petersen\",\n                    \"description\": \"Cross-group hybrid leverage\",\n                    \"country_name\": \"Bolivia\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 2,\n            \"created_at\": \"2022-10-28T02:09:06.336711Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 39,\n            \"person\": {\n                \"user\": {\n                    \"id\": 40,\n                    \"full_name\": \"Andrew White\",\n                    \"email\": \"deborah99@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 5,\n                    \"name\": \"Hickman, Lyons and Petersen\",\n                    \"description\": \"Cross-group hybrid leverage\",\n                    \"country_name\": \"Bolivia\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 9,\n            \"created_at\": \"2022-10-28T02:09:06.336724Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 40,\n            \"person\": {\n                \"user\": {\n                    \"id\": 41,\n                    \"full_name\": \"Nicole Johnson MD\",\n                    \"email\": \"steven34@hotmail.com\"\n                },\n                \"company\": {\n                    \"id\": 5,\n                    \"name\": \"Hickman, Lyons and Petersen\",\n                    \"description\": \"Cross-group hybrid leverage\",\n                    \"country_name\": \"Bolivia\",\n                    \"total_persons\": 9\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 9,\n            \"created_at\": \"2022-10-28T02:09:06.336738Z\",\n            \"metadata\": {}\n        },\n        {\n            \"id\": 41,\n            \"person\": {\n                \"user\": {\n                    \"id\": 42,\n                    \"full_name\": \"Michelle Miller\",\n                    \"email\": \"tball@gmail.com\"\n                },\n                \"company\": {\n                    \"id\": 6,\n                    \"name\": \"Rosales-Jackson\",\n                    \"description\": \"Fundamental multi-state synergy\",\n                    \"country_name\": \"Bolivia\",\n                    \"total_persons\": 8\n                },\n                \"role\": \"SHAREHOLDER\"\n            },\n            \"answer\": 1,\n            \"created_at\": \"2022-10-28T02:09:06.336751Z\",\n            \"metadata\": {}\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Take NPS survey",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company_id\": 2,\n    \"answer\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/surveys/",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"surveys",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Take NPS survey",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"company_id\": 2,\n    \"answer\": 5\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/surveys/",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"surveys",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 257,\n    \"person\": {\n        \"user\": {\n            \"id\": 16,\n            \"full_name\": \"Olivia French\",\n            \"email\": \"normanthompson@gmail.com\"\n        },\n        \"company\": {\n            \"id\": 2,\n            \"name\": \"Ortiz, Salazar and White\",\n            \"description\": \"Versatile regional parallelism\",\n            \"country_name\": \"Argentina\",\n            \"total_persons\": 9\n        },\n        \"role\": \"CONTACT\"\n    },\n    \"answer\": 5,\n    \"created_at\": \"2022-10-29T03:43:13.968798Z\",\n    \"metadata\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Reports",
+					"item": [
+						{
+							"name": "Detractors top by country",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/reports/detractors-top",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"reports",
+										"detractors-top"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Detractors top by country",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/reports/detractors-top",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"reports",
+												"detractors-top"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"Argentina\": [\n        {\n            \"user\": {\n                \"id\": 29,\n                \"full_name\": \"Heidi Moore\",\n                \"email\": \"sarahlopez@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 4,\n                \"name\": \"Brown Ltd\",\n                \"description\": \"Reduced fault-tolerant access\",\n                \"country_name\": \"Argentina\",\n                \"total_persons\": 9\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 12,\n                \"full_name\": \"Brian Weaver\",\n                \"email\": \"ejones@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 2,\n                \"name\": \"Ortiz, Salazar and White\",\n                \"description\": \"Versatile regional parallelism\",\n                \"country_name\": \"Argentina\",\n                \"total_persons\": 9\n            },\n            \"role\": \"ACC_MANAGER\"\n        },\n        {\n            \"user\": {\n                \"id\": 28,\n                \"full_name\": \"Christian Navarro\",\n                \"email\": \"davilasuzanne@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 4,\n                \"name\": \"Brown Ltd\",\n                \"description\": \"Reduced fault-tolerant access\",\n                \"country_name\": \"Argentina\",\n                \"total_persons\": 9\n            },\n            \"role\": \"ACC_MANAGER\"\n        }\n    ],\n    \"Bolivia\": [\n        {\n            \"user\": {\n                \"id\": 38,\n                \"full_name\": \"Kimberly Powers\",\n                \"email\": \"parkstiffany@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 5,\n                \"name\": \"Hickman, Lyons and Petersen\",\n                \"description\": \"Cross-group hybrid leverage\",\n                \"country_name\": \"Bolivia\",\n                \"total_persons\": 9\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 42,\n                \"full_name\": \"Michelle Miller\",\n                \"email\": \"tball@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 6,\n                \"name\": \"Rosales-Jackson\",\n                \"description\": \"Fundamental multi-state synergy\",\n                \"country_name\": \"Bolivia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 55,\n                \"full_name\": \"Emily Armstrong\",\n                \"email\": \"sanchezfelicia@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 7,\n                \"name\": \"Navarro-Stephenson\",\n                \"description\": \"Profit-focused analyzing framework\",\n                \"country_name\": \"Bolivia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"ACC_MANAGER\"\n        }\n    ],\n    \"Brasil\": [\n        {\n            \"user\": {\n                \"id\": 86,\n                \"full_name\": \"Marc Garcia\",\n                \"email\": \"jperkins@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 11,\n                \"name\": \"Rogers-Richardson\",\n                \"description\": \"Multi-lateral global concept\",\n                \"country_name\": \"Brasil\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 78,\n                \"full_name\": \"Karen Johnson\",\n                \"email\": \"rachel49@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 10,\n                \"name\": \"Hudson Ltd\",\n                \"description\": \"Multi-tiered leadingedge framework\",\n                \"country_name\": \"Brasil\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 66,\n                \"full_name\": \"Elizabeth Schultz\",\n                \"email\": \"melissa96@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 9,\n                \"name\": \"Bowman Inc\",\n                \"description\": \"Multi-layered directional interface\",\n                \"country_name\": \"Brasil\",\n                \"total_persons\": 8\n            },\n            \"role\": \"ACC_MANAGER\"\n        }\n    ],\n    \"Chile\": [\n        {\n            \"user\": {\n                \"id\": 102,\n                \"full_name\": \"David Obrien\",\n                \"email\": \"wardrobert@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 13,\n                \"name\": \"Larson, Smith and Williams\",\n                \"description\": \"User-friendly incremental policy\",\n                \"country_name\": \"Chile\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 114,\n                \"full_name\": \"Angela Walter\",\n                \"email\": \"sheilagonzalez@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 15,\n                \"name\": \"Evans-Navarro\",\n                \"description\": \"Configurable human-resource framework\",\n                \"country_name\": \"Chile\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 110,\n                \"full_name\": \"Elizabeth Arnold\",\n                \"email\": \"ccarter@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 14,\n                \"name\": \"Jackson-Klein\",\n                \"description\": \"Programmable human-resource hub\",\n                \"country_name\": \"Chile\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    ],\n    \"Colombia\": [\n        {\n            \"user\": {\n                \"id\": 131,\n                \"full_name\": \"Amber Lee\",\n                \"email\": \"hahnjoe@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 17,\n                \"name\": \"Jackson-Moore\",\n                \"description\": \"Extended next generation model\",\n                \"country_name\": \"Colombia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 135,\n                \"full_name\": \"Brendan Ryan\",\n                \"email\": \"gwest@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 17,\n                \"name\": \"Jackson-Moore\",\n                \"description\": \"Extended next generation model\",\n                \"country_name\": \"Colombia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 147,\n                \"full_name\": \"Tina Hicks\",\n                \"email\": \"tonyscott@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 19,\n                \"name\": \"Campbell, Lara and Smith\",\n                \"description\": \"Ameliorated non-volatile adapter\",\n                \"country_name\": \"Colombia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONSULTANT\"\n        }\n    ],\n    \"Costa Rica\": [\n        {\n            \"user\": {\n                \"id\": 174,\n                \"full_name\": \"Debbie Martinez DDS\",\n                \"email\": \"jaime79@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 22,\n                \"name\": \"Maldonado-Carney\",\n                \"description\": \"Networked uniform neural-net\",\n                \"country_name\": \"Costa Rica\",\n                \"total_persons\": 8\n            },\n            \"role\": \"ACC_MANAGER\"\n        },\n        {\n            \"user\": {\n                \"id\": 164,\n                \"full_name\": \"Cassie Pham\",\n                \"email\": \"wesley43@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 21,\n                \"name\": \"Rodriguez-Taylor\",\n                \"description\": \"Inverse discrete extranet\",\n                \"country_name\": \"Costa Rica\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 168,\n                \"full_name\": \"Megan Torres\",\n                \"email\": \"christopherrichardson@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 21,\n                \"name\": \"Rodriguez-Taylor\",\n                \"description\": \"Inverse discrete extranet\",\n                \"country_name\": \"Costa Rica\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    ],\n    \"Cuba\": [\n        {\n            \"user\": {\n                \"id\": 199,\n                \"full_name\": \"Dawn Moore\",\n                \"email\": \"lrobinson@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 25,\n                \"name\": \"Davis-Guzman\",\n                \"description\": \"User-friendly fresh-thinking portal\",\n                \"country_name\": \"Cuba\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 210,\n                \"full_name\": \"Martin Gill\",\n                \"email\": \"mcdowelljason@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 27,\n                \"name\": \"Hammond Ltd\",\n                \"description\": \"Universal zero administration utilization\",\n                \"country_name\": \"Cuba\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        {\n            \"user\": {\n                \"id\": 186,\n                \"full_name\": \"Jordan White\",\n                \"email\": \"henry40@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 24,\n                \"name\": \"Sanchez, Young and Woods\",\n                \"description\": \"Phased full-range instruction set\",\n                \"country_name\": \"Cuba\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    ],\n    \"Ecuador\": [\n        {\n            \"user\": {\n                \"id\": 230,\n                \"full_name\": \"Angela Mora\",\n                \"email\": \"silvawilliam@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 29,\n                \"name\": \"Petty-Rodriguez\",\n                \"description\": \"Cross-platform high-level intranet\",\n                \"country_name\": \"Ecuador\",\n                \"total_persons\": 8\n            },\n            \"role\": \"ACC_MANAGER\"\n        },\n        {\n            \"user\": {\n                \"id\": 234,\n                \"full_name\": \"Alejandro Kelley\",\n                \"email\": \"ricky15@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 30,\n                \"name\": \"Adams PLC\",\n                \"description\": \"Triple-buffered transitional projection\",\n                \"country_name\": \"Ecuador\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 255,\n                \"full_name\": \"Lisa Adams\",\n                \"email\": \"gbradley@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 32,\n                \"name\": \"Murphy LLC\",\n                \"description\": \"Triple-buffered reciprocal hub\",\n                \"country_name\": \"Ecuador\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Promoters top by country",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/reports/promoters-top",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"reports",
+										"promoters-top"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Promoters top by country",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/reports/promoters-top",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"reports",
+												"promoters-top"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"Argentina\": [\n        {\n            \"user\": {\n                \"id\": 15,\n                \"full_name\": \"Justin Jones\",\n                \"email\": \"geoffreystewart@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 2,\n                \"name\": \"Ortiz, Salazar and White\",\n                \"description\": \"Versatile regional parallelism\",\n                \"country_name\": \"Argentina\",\n                \"total_persons\": 9\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 10,\n                \"full_name\": \"Sherry Turner\",\n                \"email\": \"landerson@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 2,\n                \"name\": \"Ortiz, Salazar and White\",\n                \"description\": \"Versatile regional parallelism\",\n                \"country_name\": \"Argentina\",\n                \"total_persons\": 9\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        {\n            \"user\": {\n                \"id\": 13,\n                \"full_name\": \"Lynn Harris\",\n                \"email\": \"laura55@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 2,\n                \"name\": \"Ortiz, Salazar and White\",\n                \"description\": \"Versatile regional parallelism\",\n                \"country_name\": \"Argentina\",\n                \"total_persons\": 9\n            },\n            \"role\": \"CONSULTANT\"\n        }\n    ],\n    \"Bolivia\": [\n        {\n            \"user\": {\n                \"id\": 34,\n                \"full_name\": \"Emma Watson\",\n                \"email\": \"jamesvaldez@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 5,\n                \"name\": \"Hickman, Lyons and Petersen\",\n                \"description\": \"Cross-group hybrid leverage\",\n                \"country_name\": \"Bolivia\",\n                \"total_persons\": 9\n            },\n            \"role\": \"ACC_MANAGER\"\n        },\n        {\n            \"user\": {\n                \"id\": 37,\n                \"full_name\": \"James Jordan\",\n                \"email\": \"williamsgeorge@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 5,\n                \"name\": \"Hickman, Lyons and Petersen\",\n                \"description\": \"Cross-group hybrid leverage\",\n                \"country_name\": \"Bolivia\",\n                \"total_persons\": 9\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 40,\n                \"full_name\": \"Andrew White\",\n                \"email\": \"deborah99@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 5,\n                \"name\": \"Hickman, Lyons and Petersen\",\n                \"description\": \"Cross-group hybrid leverage\",\n                \"country_name\": \"Bolivia\",\n                \"total_persons\": 9\n            },\n            \"role\": \"SHAREHOLDER\"\n        }\n    ],\n    \"Brasil\": [\n        {\n            \"user\": {\n                \"id\": 67,\n                \"full_name\": \"Eric Nguyen\",\n                \"email\": \"smithbrian@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 9,\n                \"name\": \"Bowman Inc\",\n                \"description\": \"Multi-layered directional interface\",\n                \"country_name\": \"Brasil\",\n                \"total_persons\": 8\n            },\n            \"role\": \"ACC_MANAGER\"\n        },\n        {\n            \"user\": {\n                \"id\": 72,\n                \"full_name\": \"Alexander Glenn\",\n                \"email\": \"fhawkins@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 9,\n                \"name\": \"Bowman Inc\",\n                \"description\": \"Multi-layered directional interface\",\n                \"country_name\": \"Brasil\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        {\n            \"user\": {\n                \"id\": 81,\n                \"full_name\": \"Dr. Lisa Mitchell\",\n                \"email\": \"lauren51@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 10,\n                \"name\": \"Hudson Ltd\",\n                \"description\": \"Multi-tiered leadingedge framework\",\n                \"country_name\": \"Brasil\",\n                \"total_persons\": 8\n            },\n            \"role\": \"ACC_MANAGER\"\n        }\n    ],\n    \"Chile\": [\n        {\n            \"user\": {\n                \"id\": 95,\n                \"full_name\": \"Linda Wright\",\n                \"email\": \"michelepratt@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 12,\n                \"name\": \"Stephens PLC\",\n                \"description\": \"Multi-channeled intangible implementation\",\n                \"country_name\": \"Chile\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        {\n            \"user\": {\n                \"id\": 101,\n                \"full_name\": \"Debbie Smith\",\n                \"email\": \"sbrown@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 13,\n                \"name\": \"Larson, Smith and Williams\",\n                \"description\": \"User-friendly incremental policy\",\n                \"country_name\": \"Chile\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        {\n            \"user\": {\n                \"id\": 103,\n                \"full_name\": \"Cheryl Park\",\n                \"email\": \"wellsbrian@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 13,\n                \"name\": \"Larson, Smith and Williams\",\n                \"description\": \"User-friendly incremental policy\",\n                \"country_name\": \"Chile\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    ],\n    \"Colombia\": [\n        {\n            \"user\": {\n                \"id\": 122,\n                \"full_name\": \"Sandra Moore\",\n                \"email\": \"luke88@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 16,\n                \"name\": \"Conner Ltd\",\n                \"description\": \"Monitored explicit installation\",\n                \"country_name\": \"Colombia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 133,\n                \"full_name\": \"Ronald Adams\",\n                \"email\": \"tammybrennan@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 17,\n                \"name\": \"Jackson-Moore\",\n                \"description\": \"Extended next generation model\",\n                \"country_name\": \"Colombia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 141,\n                \"full_name\": \"Travis Hamilton\",\n                \"email\": \"crystal67@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 18,\n                \"name\": \"Cannon-Mclean\",\n                \"description\": \"Persistent maximized data-warehouse\",\n                \"country_name\": \"Colombia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONSULTANT\"\n        }\n    ],\n    \"Costa Rica\": [\n        {\n            \"user\": {\n                \"id\": 172,\n                \"full_name\": \"Francisco Padilla\",\n                \"email\": \"canthony@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 22,\n                \"name\": \"Maldonado-Carney\",\n                \"description\": \"Networked uniform neural-net\",\n                \"country_name\": \"Costa Rica\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 175,\n                \"full_name\": \"Tina Thornton\",\n                \"email\": \"rgraham@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 22,\n                \"name\": \"Maldonado-Carney\",\n                \"description\": \"Networked uniform neural-net\",\n                \"country_name\": \"Costa Rica\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 177,\n                \"full_name\": \"Rachel Payne\",\n                \"email\": \"john37@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 22,\n                \"name\": \"Maldonado-Carney\",\n                \"description\": \"Networked uniform neural-net\",\n                \"country_name\": \"Costa Rica\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        }\n    ],\n    \"Cuba\": [\n        {\n            \"user\": {\n                \"id\": 204,\n                \"full_name\": \"Melissa Cooper\",\n                \"email\": \"millermiguel@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 26,\n                \"name\": \"Whitney, Hart and Stewart\",\n                \"description\": \"Total value-added task-force\",\n                \"country_name\": \"Cuba\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        {\n            \"user\": {\n                \"id\": 215,\n                \"full_name\": \"Maurice Kennedy\",\n                \"email\": \"gschaefer@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 27,\n                \"name\": \"Hammond Ltd\",\n                \"description\": \"Universal zero administration utilization\",\n                \"country_name\": \"Cuba\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 190,\n                \"full_name\": \"Austin Miller\",\n                \"email\": \"aliciajames@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 24,\n                \"name\": \"Sanchez, Young and Woods\",\n                \"description\": \"Phased full-range instruction set\",\n                \"country_name\": \"Cuba\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        }\n    ],\n    \"Ecuador\": [\n        {\n            \"user\": {\n                \"id\": 232,\n                \"full_name\": \"Amanda Jackson\",\n                \"email\": \"youngjasmine@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 29,\n                \"name\": \"Petty-Rodriguez\",\n                \"description\": \"Cross-platform high-level intranet\",\n                \"country_name\": \"Ecuador\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        {\n            \"user\": {\n                \"id\": 235,\n                \"full_name\": \"Austin Davis\",\n                \"email\": \"taylorcassandra@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 30,\n                \"name\": \"Adams PLC\",\n                \"description\": \"Triple-buffered transitional projection\",\n                \"country_name\": \"Ecuador\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        {\n            \"user\": {\n                \"id\": 244,\n                \"full_name\": \"Savannah Warren\",\n                \"email\": \"singhcheryl@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 31,\n                \"name\": \"Reeves, Lawrence and Phillips\",\n                \"description\": \"Compatible systematic leverage\",\n                \"country_name\": \"Ecuador\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Edge top by country",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/v1/nps/reports/edge-top",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"nps",
+										"reports",
+										"edge-top"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Edge top by country",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/nps/reports/edge-top",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"nps",
+												"reports",
+												"edge-top"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"Argentina\": {\n        \"best_promoter\": {\n            \"user\": {\n                \"id\": 15,\n                \"full_name\": \"Justin Jones\",\n                \"email\": \"geoffreystewart@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 2,\n                \"name\": \"Ortiz, Salazar and White\",\n                \"description\": \"Versatile regional parallelism\",\n                \"country_name\": \"Argentina\",\n                \"total_persons\": 9\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        \"worse_detractor\": {\n            \"user\": {\n                \"id\": 29,\n                \"full_name\": \"Heidi Moore\",\n                \"email\": \"sarahlopez@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 4,\n                \"name\": \"Brown Ltd\",\n                \"description\": \"Reduced fault-tolerant access\",\n                \"country_name\": \"Argentina\",\n                \"total_persons\": 9\n            },\n            \"role\": \"CONTACT\"\n        }\n    },\n    \"Bolivia\": {\n        \"best_promoter\": {\n            \"user\": {\n                \"id\": 34,\n                \"full_name\": \"Emma Watson\",\n                \"email\": \"jamesvaldez@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 5,\n                \"name\": \"Hickman, Lyons and Petersen\",\n                \"description\": \"Cross-group hybrid leverage\",\n                \"country_name\": \"Bolivia\",\n                \"total_persons\": 9\n            },\n            \"role\": \"ACC_MANAGER\"\n        },\n        \"worse_detractor\": {\n            \"user\": {\n                \"id\": 38,\n                \"full_name\": \"Kimberly Powers\",\n                \"email\": \"parkstiffany@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 5,\n                \"name\": \"Hickman, Lyons and Petersen\",\n                \"description\": \"Cross-group hybrid leverage\",\n                \"country_name\": \"Bolivia\",\n                \"total_persons\": 9\n            },\n            \"role\": \"CONTACT\"\n        }\n    },\n    \"Brasil\": {\n        \"best_promoter\": {\n            \"user\": {\n                \"id\": 67,\n                \"full_name\": \"Eric Nguyen\",\n                \"email\": \"smithbrian@hotmail.com\"\n            },\n            \"company\": {\n                \"id\": 9,\n                \"name\": \"Bowman Inc\",\n                \"description\": \"Multi-layered directional interface\",\n                \"country_name\": \"Brasil\",\n                \"total_persons\": 8\n            },\n            \"role\": \"ACC_MANAGER\"\n        },\n        \"worse_detractor\": {\n            \"user\": {\n                \"id\": 86,\n                \"full_name\": \"Marc Garcia\",\n                \"email\": \"jperkins@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 11,\n                \"name\": \"Rogers-Richardson\",\n                \"description\": \"Multi-lateral global concept\",\n                \"country_name\": \"Brasil\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    },\n    \"Chile\": {\n        \"best_promoter\": {\n            \"user\": {\n                \"id\": 95,\n                \"full_name\": \"Linda Wright\",\n                \"email\": \"michelepratt@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 12,\n                \"name\": \"Stephens PLC\",\n                \"description\": \"Multi-channeled intangible implementation\",\n                \"country_name\": \"Chile\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        \"worse_detractor\": {\n            \"user\": {\n                \"id\": 102,\n                \"full_name\": \"David Obrien\",\n                \"email\": \"wardrobert@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 13,\n                \"name\": \"Larson, Smith and Williams\",\n                \"description\": \"User-friendly incremental policy\",\n                \"country_name\": \"Chile\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    },\n    \"Colombia\": {\n        \"best_promoter\": {\n            \"user\": {\n                \"id\": 122,\n                \"full_name\": \"Sandra Moore\",\n                \"email\": \"luke88@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 16,\n                \"name\": \"Conner Ltd\",\n                \"description\": \"Monitored explicit installation\",\n                \"country_name\": \"Colombia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        \"worse_detractor\": {\n            \"user\": {\n                \"id\": 131,\n                \"full_name\": \"Amber Lee\",\n                \"email\": \"hahnjoe@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 17,\n                \"name\": \"Jackson-Moore\",\n                \"description\": \"Extended next generation model\",\n                \"country_name\": \"Colombia\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    },\n    \"Costa Rica\": {\n        \"best_promoter\": {\n            \"user\": {\n                \"id\": 172,\n                \"full_name\": \"Francisco Padilla\",\n                \"email\": \"canthony@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 22,\n                \"name\": \"Maldonado-Carney\",\n                \"description\": \"Networked uniform neural-net\",\n                \"country_name\": \"Costa Rica\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        },\n        \"worse_detractor\": {\n            \"user\": {\n                \"id\": 174,\n                \"full_name\": \"Debbie Martinez DDS\",\n                \"email\": \"jaime79@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 22,\n                \"name\": \"Maldonado-Carney\",\n                \"description\": \"Networked uniform neural-net\",\n                \"country_name\": \"Costa Rica\",\n                \"total_persons\": 8\n            },\n            \"role\": \"ACC_MANAGER\"\n        }\n    },\n    \"Cuba\": {\n        \"best_promoter\": {\n            \"user\": {\n                \"id\": 204,\n                \"full_name\": \"Melissa Cooper\",\n                \"email\": \"millermiguel@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 26,\n                \"name\": \"Whitney, Hart and Stewart\",\n                \"description\": \"Total value-added task-force\",\n                \"country_name\": \"Cuba\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONSULTANT\"\n        },\n        \"worse_detractor\": {\n            \"user\": {\n                \"id\": 199,\n                \"full_name\": \"Dawn Moore\",\n                \"email\": \"lrobinson@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 25,\n                \"name\": \"Davis-Guzman\",\n                \"description\": \"User-friendly fresh-thinking portal\",\n                \"country_name\": \"Cuba\",\n                \"total_persons\": 8\n            },\n            \"role\": \"CONTACT\"\n        }\n    },\n    \"Ecuador\": {\n        \"best_promoter\": {\n            \"user\": {\n                \"id\": 232,\n                \"full_name\": \"Amanda Jackson\",\n                \"email\": \"youngjasmine@yahoo.com\"\n            },\n            \"company\": {\n                \"id\": 29,\n                \"name\": \"Petty-Rodriguez\",\n                \"description\": \"Cross-platform high-level intranet\",\n                \"country_name\": \"Ecuador\",\n                \"total_persons\": 8\n            },\n            \"role\": \"SHAREHOLDER\"\n        },\n        \"worse_detractor\": {\n            \"user\": {\n                \"id\": 230,\n                \"full_name\": \"Angela Mora\",\n                \"email\": \"silvawilliam@gmail.com\"\n            },\n            \"company\": {\n                \"id\": 29,\n                \"name\": \"Petty-Rodriguez\",\n                \"description\": \"Cross-platform high-level intranet\",\n                \"country_name\": \"Ecuador\",\n                \"total_persons\": 8\n            },\n            \"role\": \"ACC_MANAGER\"\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"let token = pm.environment.get(\"token\")",
+					"",
+					"if (token) {",
+					"    pm.request.headers.add(`Authorization: Bearer ${token}`)",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
