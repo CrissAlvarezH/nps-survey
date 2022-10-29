@@ -6,6 +6,9 @@ up-db:
 up: up-db
 	docker compose up app
 
+up-prod: rm-img
+	docker compose -f docker-compose.yaml -f docker-compose.prod.yaml up app
+
 test:
 	docker compose up database -d
 	sleep 3
@@ -27,3 +30,6 @@ clean-db: down
 	docker volume ls
 	docker volume rm npssurvey_dbdata
 	docker volume ls
+
+rm-img: down
+	docker rmi npssurvey-app
