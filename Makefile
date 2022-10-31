@@ -26,7 +26,7 @@ setup:
 	python manage.py insert_countries
 	python manage.py insert_nps_data
 
-clean-db: down
+clear-db: down
 	docker volume ls
 	docker volume rm npssurvey_dbdata
 	docker volume ls
