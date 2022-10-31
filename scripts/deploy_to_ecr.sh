@@ -10,4 +10,3 @@ docker build --no-cache -t aws-ecs-npssurvey-app -f ./compose/production/Dockerf
 docker tag aws-ecs-npssurvey-app:latest $AWS_ACCOUNT_NUMBER.dkr.ecr.$AWS_REGION.amazonaws.com/npssurvey/service-app:latest
 aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_NUMBER.dkr.ecr.$AWS_REGION.amazonaws.com
 docker push $AWS_ACCOUNT_NUMBER.dkr.ecr.$AWS_REGION.amazonaws.com/npssurvey/service-app:latest
-# aws ecs update-service --cluster aws-ecs-npssurvey-app --service aws-ecs-npssurvey-app --force-new-deployment

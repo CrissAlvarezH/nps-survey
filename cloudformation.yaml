@@ -1,13 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
 
-Parameters:
-  Subnet1ID:
-    Type: String
-  Subnet2ID:
-    Type: String
-  VPCID:
-    Type: String
-
 Resources:
 
   Cluster:
