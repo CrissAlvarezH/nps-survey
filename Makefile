@@ -1,10 +1,3 @@
-
-setup-infra:
-	sh ./scripts/setup_infra.sh
-
-deploy-to-ecr:
-	bash ./scripts/deploy_to_ecr.sh 
-
 up-db:
 	docker compose up database -d
 	docker compose build app

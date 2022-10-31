@@ -80,7 +80,7 @@ Resources:
         - Name: aws-ecs-npssurvey-app-container
           Image: !Join
             - ":"
-            - - !GetAtt Repository.Arn
+            - - !GetAtt Repository.RepositoryUri
               - "latest"
           PortMappings:
             - ContainerPort: 80
@@ -92,51 +92,3 @@ Resources:
               awslogs-stream-prefix: ecs
       RequiresCompatibilities:
         - FARGATE
-
-  # Service:
-  #   Type: AWS::ECS::Service
-  #   Properties:
-  #     ServiceName: aws-ecs-npssurvey-app-svc
-  #     Cluster: !Ref Cluster
-  #     TaskDefinition: !Ref TaskDefinition
-  #     DesiredCount: 1
-  #     LaunchType: FARGATE
-  #     NetworkConfiguration:
-  #       AwsvpcConfiguration:
-  #         AssignPublicIp: ENABLED
-  #         Subnets:
-  #           - !Ref Subnet1ID
-  #           - !Ref Subnet2ID
-  #         SecurityGroups:
-  #           - !GetAtt ContainerSecurityGroup.GroupId
-
-  # LoadBalancerSecurityGroup:
-  #   Type: AWS::EC2::SecurityGroup
-  #   Properties:
-  #     GroupName: LoadBalancerSecurityGroup
-  #     GroupDescription: Security group for load balancer
-  #     SecurityGroupIngress:
-  #       - IpProtocol: tcp
-  #         FromPort: 80
-  #         ToPort: 80
-  #         CidrIp: 0.0.0.0/0
-  #       - IpProtocol: tcp
-  #         FromPort: 443
-  #         ToPort: 443
-  #         CidrIp: 0.0.0.0/0
-
-  # LoadBalancer:
-  #   Type: AWS::ElasticLoadBalancingV2::LoadBalancer
-  #   Properties:
-  #     Name: aws-ecs-npssurvey-app-alb
-  #     Subnets:
-  #       - !Ref Subnet1ID
-  #       - !Ref Subnet2ID
-  #     SecurityGroups:
-  #       - !GetAtt LoadBalancerSecurityGroup.GroupId
-
-# aws cloudformation create-stack --stack-name aws-ecs-npssurvey-app --template-body file://./ecs-1.yml --capabilities CAPABILITY_NAMED_IAM \
-# --parameters ParameterKey=VPCID,ParameterValue=YOUR_VPC_ID \
-# ParameterKey=Subnet1ID,ParameterValue=YOUR_SUBNET_1_ID \
-# ParameterKey=Subnet2ID,ParameterValue=YOUR_SUBNET_2_ID \
-# ParameterKey=DomainName,ParameterValue=YOUR_DOMAIN_NAME.com
