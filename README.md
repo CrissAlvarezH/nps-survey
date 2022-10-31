@@ -75,7 +75,7 @@ npssurvey-app-1  | Watching for file changes with StatReloader
 
 Con esto ya podemos hacer uso de la api en local apuntando a `localhost:8000`
 
-## Despliegue en aws
+## Despligue en aws
 Para desplegar en aws necesitamos tener instalado y configurado el [cli de aws](https://aws.amazon.com/es/cli/), para esto usaremos el comando `aws configure` en introduciremos nuestras credenciales con los permisos necesarios para desplegar la infra anteriormente descrita.
 
 ### 1. Crear servicios en AWS via IAC
@@ -116,6 +116,15 @@ Cada uno de los endpoint del api estan documentados en una colección de Postman
 
 Donde veremos que cada request tiene un ejemplo donde se explica como usarla y que respuesta esperar de ella.
 
+Para hacer uso de la colección debemos crear un Environmen con las siguientes variables
+
+<img src='https://github.com/CrissAlvarezH/nps-survey/blob/main/docs/imgs/env-vars-postman.png'/>
+
+El valor de las variables de `user` y `password` dependerán de las variables de entorno que hemos configurado.
+Despues, para realizar el login debemos seleccionar el entorno y ejecutar el endpoint `Auth` que se encuentra en la subcarpeta `Users`, este endpoint esta configurado para tomar las credenciales del entorno y, despues de ejecutar el request, guardar el token en este mismo entorno.
+Por tanto, despues de ejecutar el endpoint de autenticación debemos ver en nuestro entorno el `token` y el `refresh_token` con sus respectivos valores.
+
+> **NOTA IMPORTATE** Todos los usuario creados automaticamente en el depliegue tienen contraseña igual, es **123456**
 
 # Tests
 
