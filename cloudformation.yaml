@@ -34,14 +34,6 @@ Resources:
             Effect: Allow
             Principal:
               Service: ecs-tasks.amazonaws.com
-      Policies:
-        - PolicyDocument:
-            Statement:
-              Action:
-                - ses:SendEmail
-              Effect: Allow
-              Resource: '*'
-          PolicyName: send-mail
 
   ContainerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
