@@ -74,3 +74,64 @@ npssurvey-app-1  | Watching for file changes with StatReloader
 ```
 
 Con esto ya podemos hacer uso de la api en local apuntando a `localhost:8000`
+
+## Despliegue en aws
+Para desplegar en aws necesitamos tener instalado y configurado el [cli de aws](https://aws.amazon.com/es/cli/), para esto usaremos el comando `aws configure` en introduciremos nuestras credenciales con los permisos necesarios para desplegar la infra anteriormente descrita.
+
+### 1. Crear servicios en AWS via IAC
+
+El despliegue será en parte via IAC usando [CloudFormation](https://aws.amazon.com/es/cloudformation/) y el archivo template es `cloudformation.yaml` en la raiz de repositorio, para hacer el despliegue de la infra usaremos un script en bash especifico para esto, en la consola escribimos y ejecutamos el siguiente comando
+```
+bash scripts/setup_infra.sh
+```
+Este script se encarga de desplegar el stack en cloud formation y crear la infraestructura base que usaremos para desplegar nuesta app, en aws podremos ver el stack de cloud formation creandose
+
+<img src='https://github.com/CrissAlvarezH/nps-survey/blob/main/docs/imgs/aws-cloudformation-stak.png'/>
+
+Una vez el stack pasa a estar en **CREATE_COMPLETE** ya tenemos la infra base para desplegar.
+
+### 2. Crear imagen docker y subir a AWS ECR
+
+El paso anterior creó, entre otras cosas, un Task definition en ECS que apunta a un repository en ECR el cual contendrá la imagen docker de nuestra aplicación, en este paso vamos a subir esa imagen docker para que podamos crear un Task con este Task definition y poner en producción el proyecto, para esto el script a usar es el siguiente
+
+```
+bash scripts/deploy_to_ecr.sh <aws account id> <aws region>
+```
+Como podemos notar, necesitamos pasar dos parametros al script, el primero es el id de la cuenta de aws y el segundo la region donde se encuentra nuestra infra creada del paso anterior.
+
+### 3. Lanzar Task en ECS
+
+Despues de ejecutar los pasos anteriores tendremos la infraestructura creada en AWS, lo siguiente es configurar el Task definition creado en el paso 1 con el nombre `aws-ecs-npssurvey-app` y configurar las variables de entorno del proyecto, para saber cuales son tenemos el archivo `.env.example`, aquí podemos configurar las credenciales de la base de datos quer puede ser por ejemplo una db instance en RDS o cualquier otro base de datos Postgres que considere conveniente, el levantamiento de la base de datos es a discreción del usuario.
+
+Lo ultimo por hacer es lanzar el Task en el cluster `aws-ecs-npssurvey-app` de ECS creando via IAC y tomar la dirección IP publica del task para hacer uso del API del proyecto.
+
+
+# Api
+
+## Colección de Postman
+
+Cada uno de los endpoint del api estan documentados en una colección de Postman el cual podemos importar usando el archivo `docs/postman_collection.json`, una vez importado tendremos una carpeta en Postman como esta:
+
+<img src='https://github.com/CrissAlvarezH/nps-survey/blob/main/docs/imgs/postman-collection.png'/>
+
+Donde veremos que cada request tiene un ejemplo donde se explica como usarla y que respuesta esperar de ella.
+
+
+# Tests
+
+Para correr los test podemos usar `make` y correr el comando
+```
+make test
+```
+O en caso de no tene `make` instalado, usamos el siguiente comando
+```
+docker compose up database -d
+
+python manage.py test
+```
+
+Una vez terminamos de ejecutar los test debemos apagar el contenedor de la base de datos (si usamos `make` esto no es necesario), para esto ejecutamos
+
+```
+docker compose down
+```
