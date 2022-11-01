@@ -75,7 +75,7 @@ npssurvey-app-1  | Watching for file changes with StatReloader
 
 Con esto ya podemos hacer uso de la api en local apuntando a `localhost:8000`
 
-## Despligue en aws
+## Despliegue en aws
 Para desplegar en aws necesitamos tener instalado y configurado el [cli de aws](https://aws.amazon.com/es/cli/), para esto usaremos el comando `aws configure` en introduciremos nuestras credenciales con los permisos necesarios para desplegar la infra anteriormente descrita.
 
 ### 1. Crear servicios en AWS via IAC
